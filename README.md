@@ -15,3 +15,4 @@
 	
 Leistung = 4.067*(10^4) W
 
+![xps](Leistungsrechnung.xps)
