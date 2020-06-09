@@ -8,4 +8,9 @@
 	• Innere Struktur?? Parametisieren? Länge? Winkel?
 	• Tubelänge bis 500 mm recht lang
 	• Welches Drucker? 
+	• Modell validieren
+	• Additive Fertigung nur ein Teil fertigen?
+	• Leer Rohr zuerst
+	• Anforderung+Nachbearbeitung
+
 
