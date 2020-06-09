@@ -13,5 +13,5 @@
 	• Leer Rohr zuerst
 	• Anforderung+Nachbearbeitung
 	
-Leistung = (@SCALE (@PARENS (* 4.067 (^ 10 4))) (@LABEL UNIT W))
+Leistung = 4.067*(10^4) W
 
