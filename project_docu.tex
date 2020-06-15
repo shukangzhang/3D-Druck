@@ -67,7 +67,7 @@
 \abstract{}
 
 % Keywords
-\keyword{3D-Druck, FLM, AMIR, Mischreaktor}
+\keyword{3D-Printing, FLM, AMIR, Mixing Reactor}
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -84,27 +84,50 @@
 \section{Introduction}
 \subsection{Requirement Specification}
  \begin{table}[H]
-\caption{Requirement specification for the project}
+\caption{Requirement specification list for the heat exchanger}
 \centering
 %% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-\begin{tabular}{llll}
+\begin{tabular}{lllll}
 \toprule
-\textbf{ \makecell{Obligatory\\or Desirable}} & \textbf{Category}	& \textbf{Description}	& \textbf{Value} \\ % & \textbf{tolerance}
+\textbf{\makecell{Obligatory\\or Desirable}} & \textbf{Category}	& \textbf{Description}	& \textbf{Value} & \textbf{\makecell{Person\\Responsible}} \\
 \midrule
 %    &   &   &  \\
-Obligatory & Performance		& volume flow rate			& greater 0.5 m$^3$/h \\
-Obligatory    & Performance  & heat distribution  & radial and evenly \\
-Obligatory    & Performance  & heating water flowing trough  & from 10 °C to 80 °C \\
-Obligatory	& Material    	& material temperature resistance			& between 0 °C and 90 °C \\
-Obligatory	& Material    	& material water solvability  & unsolvable in water \\
+Obligatory & Performance		& volume flow rate			& greater 0.5 m$^3$/h   &  \\
+Obligatory    & Performance  & heat distribution  & radial and evenly   &  \\
+Obligatory    & Performance  & heating water flowing trough  & from 10 °C to 100 °C   &  \\
+Obligatory  & Performance   & low pressure drop &   &   \\
+Obligatory	& Material    	& material temperature resistance			& between 0 °C and 90 °C   &  \\
+Obligatory	& Material    	& material water solvability  & unsolvable in water   &  \\
 %Obligatory    & Material  & ferromagnetism  & material must be ferromagnetic \\
-Obligatory    & Material  & electrical conductivity  & greater $10^6$ S/m \\
-Obligatory	& Manufacturing    	& manufacturing process  & additive manufacturing \\
-Obligatory	& Geometry    	& outer Shape  & cylindrical \\
-Obligatory	& Geometry    	& outer diameter  &  94 mm \\
-Desirable	& Geometry    	& length  & Between 100 mm and 200 mm \\
-Obligatory    & Geometry  & outer wall  & closed \\
-Desirable    & Geometry  & outer wall thickness & smaller 5 mm \\
+Obligatory    & Material  & electrical conductivity  & greater $10^6$ S/m   &  \\
+Obligatory	& Manufacturing    	& manufacturing process  & additive manufacturing   &  \\
+Desirable	& Geometry    	& customizability of model & model is parameterized   &  \\
+Obligatory	& Geometry    	& outer Shape  & cylindrical   &  \\
+Obligatory	& Geometry    	& outer diameter  &  94 mm   &  \\
+Desirable	& Geometry    	& length  & up to 300 mm   &  \\
+Obligatory    & Geometry  & outer wall  & closed   &  \\
+Desirable    & Geometry  & outer wall thickness & smaller 5 mm   &  \\
+Obligatory    & Geometry  & water flow direction  & fixed direction   &  \\
+
+%%% Besprechung 09.06.2020 Notizen (+ markierte Punkte wurden in der Anforderungliste uebernommen):
+% + Low pressure drop
+% + Höhere Temperaturtoleranz, da das bauteil heißer wird als das Wasser#
+% Effizienzgrad? Anderes Paper als Benchmark, oder verschiedene Versionen des eigenen Modells verbessern
+% + Parametrisierbarkeit könnte Anforderung sein
+% Statische Mischer als Anfangsstrukturen für Energieeintrag und Durchmischung
+% + Länge des Zylinders: Festgelegt durch Versuchsaufbau und 3D-Drucker
+% + Länge durch Versuchsaufbau: 1 m tube length - Ein- und Ablaufzone
+% + Länge festgelegt: Bis 300 mm
+% Druck dürfen wir selbst festlegen
+% Befestigung im Rohr: Spaltmaß berücksichtigen, Fügemaße abschätzen, Befestigung durch Klemmringe (Eigentlich Sprengring innerhalb des Rohrs)
+% + Es gibt feste Flußrichtung
+% Anforderungen an das System stellen und auch an das Bauteil
+% + Verantwortlichkeit fehlt in Anforderungsliste (3 Foliensatz)
+% Aus welchem Material besteht das Rohr? Plexiglass PMMA, bis 90 °C Temperaturstabil
+% Kleiners Rohr (1 Zoll) auch möglich für erste Versuche
+% Anforderungsliste an Experimente.
+% Leistung der Spule, Berchnen aus Anforderungen
+% Anforderung, Wie radiale Wärme berechnen?
 \bottomrule
 \end{tabular}
 \end{table}
