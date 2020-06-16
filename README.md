@@ -16,3 +16,5 @@
 Leistung = 4.067*(10^4) W
 
 ![image](https://github.com/shukangzhang/3D-Druck/blob/master/Abtraktion-Produkt.png)
+
+-wie der Druck und die T messen? Problem ist, dass der Messer nicht induziert werden sollte.
