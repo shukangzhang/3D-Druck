@@ -15,4 +15,4 @@
 	
 Leistung = 4.067*(10^4) W
 
-![xps](Leistungsrechnung.xps)
+![image](https://github.com/shukangzhang/3D-Druck/blob/master/Abtraktion-Produkt.png)
