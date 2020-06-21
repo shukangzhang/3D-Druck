@@ -28,5 +28,7 @@ Dann haben wir 2 Auswahl:
 - metalisch äußere Hülle + metalisch innere Struktur
 
 Metalisch äußere Hülle hat hier zu gut Wärmeleitfähigkeit, führt durch natürliche Konvektion zu Kühlung.
-Deswegen empfehle ich nicht-metalisch äußere Hülle + metalisch innere Struktur
+
+Deswegen empfehle ich nicht-metalisch äußere Hülle + metalisch innere Struktur. 
+
 Äußere Hülle soll ein schlechte Wärmeleitfähigkeit haben. 
