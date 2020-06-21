@@ -32,3 +32,7 @@ Metalisch äußere Hülle hat hier zu gut Wärmeleitfähigkeit, führt durch nat
 Deswegen empfehle ich nicht-metalisch äußere Hülle + metalisch innere Struktur. 
 
 Äußere Hülle soll ein schlechte Wärmeleitfähigkeit haben. 
+
+Die Messung von Tempertaur --> Berührungslos messende Thermometer?
+
+Die Messung von Druck?
