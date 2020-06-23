@@ -19,19 +19,19 @@ Leistung = 4.067*(10^4) W
 
 -wie der Druck und die T messen? Problem ist, dass der Messer nicht induziert werden sollte.
 
-# Funtionsmodell
-Laut der Berechnung von Re (von 750 bis 2750) kann der Vorgang im Rohr als laminare Strömung betrachtet werden. Dann ist die Tempeaturverteilung ein Funktion von Abstand von Rohrwand. Ein radial homogene Tempeaturverteilung ist nämlich unmöglich.
-1. Um ein radial homogene Tempeaturverteilung zu bekommen, braucht eine turbulente Strömung.
+# Funktionsmodell
+Laut der Berechnung von Re (von 750 bis 2750) kann der Vorgang im Rohr als laminare Strömung betrachtet werden. Dann ist die Tempeaturverteilung eine Funktion des Abstands von der Rohrwand. Eine radial homogene Tempeaturverteilung ist nämlich unmöglich.
+1. Um eine radial homogene Tempeaturverteilung zu bekommen, ist eine turbulente Strömung notwendig.
 
-Dann haben wir 2 Auswahl:
-- nicht-metalisch äußere Hülle + metalisch innere Struktur
-- metalisch äußere Hülle + metalisch innere Struktur
+Damit stehen zwei Optionen zur Auswahl:
+- nicht-metallische äußere Hülle + metallische innere Struktur
+- metallische äußere Hülle + metallische innere Struktur
 
-Metalisch äußere Hülle hat hier zu gut Wärmeleitfähigkeit, führt durch natürliche Konvektion zu Kühlung.
+Eine metallische äußere Hülle führt zu guter Wärmeleitfähigkeit, aber durch natürliche Konvektion auch zu Kühlung.
 
-Deswegen empfehle ich nicht-metalisch äußere Hülle + metalisch innere Struktur. 
+Deswegen empfehle ich eine nicht-metallische äußere Hülle + metallsche innere Struktur. 
 
-Äußere Hülle soll ein schlechte Wärmeleitfähigkeit haben. 
+Die äußere Hülle soll eine schlechte Wärmeleitfähigkeit haben. 
 
 Die Messung von Tempertaur --> Berührungslos messende Thermometer?
 
