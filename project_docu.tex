@@ -28,6 +28,7 @@
 % Own added packages
 \usepackage{textcomp}
 \usepackage{makecell}
+\usepackage{ulem}
 
 %=================================================================
 %% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -82,55 +83,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-\subsection{Requirement Specification}
- \begin{table}[H]
-\caption{Requirement specification list for the heat exchanger}
-\centering
-%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-\begin{tabular}{lllll}
-\toprule
-\textbf{\makecell{Obligatory\\or Desirable}} & \textbf{Category}	& \textbf{Description}	& \textbf{Value} & \textbf{\makecell{Person\\Responsible}} \\
-\midrule
-%    &   &   &  \\
-Obligatory & Performance		& volume flow rate			& greater 0.5 m$^3$/h   &  \\
-Obligatory    & Performance  & heat distribution  & radial and evenly   &  \\
-Obligatory    & Performance  & heating water flowing trough  & from 10 °C to 100 °C   &  \\
-Obligatory  & Performance   & low pressure drop &   &   \\
-Obligatory	& Material    	& material temperature resistance			& between 0 °C and 90 °C   &  \\
-Obligatory	& Material    	& material water solvability  & unsolvable in water   &  \\
-%Obligatory    & Material  & ferromagnetism  & material must be ferromagnetic \\
-Obligatory    & Material  & electrical conductivity  & greater $10^6$ S/m   &  \\
-Obligatory	& Manufacturing    	& manufacturing process  & additive manufacturing   &  \\
-Desirable	& Geometry    	& customizability of model & model is parameterized   &  \\
-Obligatory	& Geometry    	& outer Shape  & cylindrical   &  \\
-Obligatory	& Geometry    	& outer diameter  &  94 mm   &  \\
-Desirable	& Geometry    	& length  & up to 300 mm   &  \\
-Obligatory    & Geometry  & outer wall  & closed   &  \\
-Desirable    & Geometry  & outer wall thickness & smaller 5 mm   &  \\
-Obligatory    & Geometry  & water flow direction  & fixed direction   &  \\
 
-%%% Besprechung 09.06.2020 Notizen (+ markierte Punkte wurden in der Anforderungliste uebernommen):
-% + Low pressure drop
-% + Höhere Temperaturtoleranz, da das bauteil heißer wird als das Wasser#
-% Effizienzgrad? Anderes Paper als Benchmark, oder verschiedene Versionen des eigenen Modells verbessern
-% + Parametrisierbarkeit könnte Anforderung sein
-% Statische Mischer als Anfangsstrukturen für Energieeintrag und Durchmischung
-% + Länge des Zylinders: Festgelegt durch Versuchsaufbau und 3D-Drucker
-% + Länge durch Versuchsaufbau: 1 m tube length - Ein- und Ablaufzone
-% + Länge festgelegt: Bis 300 mm
-% Druck dürfen wir selbst festlegen
-% Befestigung im Rohr: Spaltmaß berücksichtigen, Fügemaße abschätzen, Befestigung durch Klemmringe (Eigentlich Sprengring innerhalb des Rohrs)
-% + Es gibt feste Flußrichtung
-% Anforderungen an das System stellen und auch an das Bauteil
-% + Verantwortlichkeit fehlt in Anforderungsliste (3 Foliensatz)
-% Aus welchem Material besteht das Rohr? Plexiglass PMMA, bis 90 °C Temperaturstabil
-% Kleiners Rohr (1 Zoll) auch möglich für erste Versuche
-% Anforderungsliste an Experimente.
-% Leistung der Spule, Berchnen aus Anforderungen
-% Anforderung, Wie radiale Wärme berechnen?
-\bottomrule
-\end{tabular}
-\end{table}
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,9 +140,75 @@ LD & linear dichroism
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
-\appendixtitles{no} %Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixtitles{yes} %Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
 \appendix
+\section{Requirement Specification}
+ \begin{table}[H]
+\caption{Requirement specification list for the heat exchanger}
+\centering
+%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
+\begin{tabular}{llllll}
+\toprule
+\textbf{\makecell{Obligatory\\or Desirable}} & \textbf{Category}	& \textbf{Description}	& \textbf{Value} & \textbf{\makecell{Person\\Responsible}} & \textbf{Last Changed} \\
+\midrule
+%    &   &   &  \\
+Obligatory & Performance		& volume flow rate			& greater 0.5 m$^3$/h   & Scherf &  2020-06-23 \\
+Obligatory    & Performance  & heat distribution  & radial and evenly   & Scherf & 2020-06-23 \\
+Obligatory    & Performance  & heating water flowing trough  & from 10 °C to 80 °C   & Scherf & 2020-06-23 \\
+Obligatory  & Performance   & low pressure drop &   & Scherf & 2020-06-23 \\
+Obligatory	& Material    	& material temperature resistance			& between 0 °C and 90 °C   & Group A & 2020-06-23 \\
+Obligatory	& Material    	& material water solvability  & unsolvable in water   & Group A & 2020-06-23 \\
+Obligatory    & Material  & electrical conductivity  & greater $10^6$ S/m   & Group A & 2020-06-23 \\
+Obligatory	& Manufacturing    	& manufacturing process  & additive manufacturing   & Scherf & 2020-06-23 \\
+Desirable	& Geometry    	& customizability of model & model is parameterized   & Group A & 2020-06-23 \\
+Obligatory	& Geometry    	& outer Shape  & cylindrical   & Group A & 2020-06-23 \\
+Obligatory	& Geometry    	& outer diameter  &  94 mm   & Scherf & 2020-06-23 \\
+Desirable	& Geometry    	& length  & up to 300 mm   & Scherf & 2020-06-23 \\
+\sout{Obligatory}    & \sout{Geometry}  & \sout{outer wall}  & \sout{closed}   &   & 2020-06-23 \\
+\sout{Desirable}    & \sout{Geometry}  & \sout{outer wall thickness} & \sout{smaller 5 mm}   &  & 2020-06-23 \\
+Obligatory    & Geometry  & water flow direction  & fixed direction   & Scherf & 2020-06-23 \\
 
+%%% Besprechung 09.06.2020 Notizen (+ markierte Punkte wurden in der Anforderungliste uebernommen):
+% + Low pressure drop
+% + Höhere Temperaturtoleranz, da das bauteil heißer wird als das Wasser#
+% Effizienzgrad? Anderes Paper als Benchmark, oder verschiedene Versionen des eigenen Modells verbessern
+% + Parametrisierbarkeit könnte Anforderung sein
+% Statische Mischer als Anfangsstrukturen für Energieeintrag und Durchmischung
+% + Länge des Zylinders: Festgelegt durch Versuchsaufbau und 3D-Drucker
+% + Länge durch Versuchsaufbau: 1 m tube length - Ein- und Ablaufzone
+% + Länge festgelegt: Bis 300 mm
+% Druck dürfen wir selbst festlegen
+% Befestigung im Rohr: Spaltmaß berücksichtigen, Fügemaße abschätzen, Befestigung durch Klemmringe (Eigentlich Sprengring innerhalb des Rohrs)
+% + Es gibt feste Flußrichtung
+% Anforderungen an das System stellen und auch an das Bauteil
+% + Verantwortlichkeit fehlt in Anforderungsliste (3 Foliensatz)
+% Aus welchem Material besteht das Rohr? Plexiglass PMMA, bis 90 °C Temperaturstabil
+% Kleiners Rohr (1 Zoll) auch möglich für erste Versuche
+% Anforderungsliste an Experimente.
+% Leistung der Spule, Berchnen aus Anforderungen
+% Anforderung, Wie radiale Wärme berechnen?
+
+%%% Besprechung 16.06.2020
+% Reduzierung der Durchflussmenge bei Liveversuch auf realistischere Werte
+% Person responsible ist die Person für die die Anforderung erstellt wird
+% Kupferspule ringsherum
+% Performance Erhitzung des Wassers nur bis 80 °C
+% Zylinder muss keine Hülle haben
+% Bachelorarbeit Restriktionsgerechte Strukturoptimierung von additiv gefertigten Strukturreaktoren mit STar-ccm+, Lars Grobelny
+% Datum der Änderungen mit in Anforderungsliste, da es benötigt wird
+% Wir kriegen Fotos vom Versuchsstand
+% Wir kriegen Simulationsmodell der Bachelorarbeit
+% Anforderungsliste soll in den Anhang des Dokuments
+% Zeitplanung bis spätestens nächste Woche vorlegen, mit Angabe, wer für was verantwortlich ist (gun chart?)
+% Teile dürfen abbrechen von unserer Tube
+% Funktionsmodell können wir schon anfangen mit z. B. Brainstorming was
+% Funktionsmodell sollte in ca. 5 h zu machen sein
+% Bis nächste Woche ein diskussionsfähiges Funktionsmodell vorlegen
+% Projektplanung der nächsten Wochen vorstellen
+% Nächste Besprechung Mittwoch 24.06.2020 um 10 Uhr 
+\bottomrule
+\end{tabular}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
