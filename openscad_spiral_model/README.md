@@ -22,6 +22,12 @@ ring_structure = [
     innermost ring
 ];
 ```
+Example pictures for the ring_structure = [[12, 48, 2, 10], [12, 36, 3], [4, 22, 4], [1, 0, 4]]
+![Only Circles](https://github.com/shukangzhang/3D-Druck/blob/master/openscad_spiral_model/simple_part_only_circles.png)
+Just the rings.
+
+![Circles and bridges](https://github.com/shukangzhang/3D-Druck/blob/master/openscad_spiral_model/simple_part_circles_with_bridges.png)
+Bridges in yellow connecting the outer with the inner circles, building one complete 2D structure.
 
 #### Number of objects
 Number of created objects in the ring that are distributed evenly around the center of the structure.
@@ -36,7 +42,7 @@ It's the radius of the circles the ring consists off.
 Optional parameter that gives additional rotation to the current ring with the value in degree.
 
 ### linear_extrude
-The linear_extrude command contains the other two interesting parameter, `height` and `twist`.
+The linear_extrude command contains the other two interesting parameter, `height` and `twist`. This command extrudes the 2D structure created before and twists it to give it a helix like shape.
 
 #### height
 Gives the height of the completed 3D structure.
