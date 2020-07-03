@@ -103,41 +103,22 @@ module bridges_between_rings(ring_structure, center_points, thickness_bridge) {
 
 }
 
-/* Define parameters */
-// Animation parameter
-fps = 20;
-steps = 200;
-number_of_seconds = steps/fps;
-// animation parameter with range [0-9]
-animation_parameter_0_10_1 = floor(10*$t);
-animation_parameter_0_40_1 = floor(40*$t);
-animation_parameter_2_6_1 = floor(4*$t) + 2;
-animation_parameter_0_90_1 = floor(91*$t);
-echo("ap_0_10_1:", animation_parameter_0_10_1);
-echo("ap_2_6_1:", animation_parameter_2_6_1);
-echo("ap_0_90_1:", animation_parameter_0_90_1);
 
 // Ring structure is an array with each element describing one ring in the form [number of objects, distance to center, radius of sphere, optional rotation]
 // It has to be sorted from outer most to inner most rings
 ring_structure = [
     [12, 48, 2, 10],
-    [12, 36, 4],
-    [4, 22, 6],
-    [1, 0, 8]
-];
-animation_ring_structure = [
-    [10+animation_parameter_0_40_1, 60+3*animation_parameter_0_10_1, 2],
-    [6+animation_parameter_2_6_1, 50+3*animation_parameter_0_10_1, 4],
-    [6+animation_parameter_2_6_1, 30+animation_parameter_0_40_1/2, 8-animation_parameter_2_6_1+1, 2*animation_parameter_0_90_1],
-    [animation_parameter_2_6_1, 10, 5]
+    [12, 36, 3],
+    [4, 22, 4],
+    [1, 0, 4]
 ];
 
 // Calculate center points of the structures to extrude
 center_points = get_center_points(ring_structure);
-animation_center_points = get_center_points(animation_ring_structure);
 
-/*
+
 // Extrude the 2D-Structure with a twist to create helixes
+color("lightgrey")
 linear_extrude(height= 100, center=false, twist=90, slices=20) {
     // Create ring structure in 2D 
     for (current_ring=ring_structure) {
@@ -148,19 +129,4 @@ linear_extrude(height= 100, center=false, twist=90, slices=20) {
     }
     // Create bridges between rings
     bridges_between_rings(ring_structure, center_points, 1);
-}
-*/
-
-// Extrude animation structure
-linear_extrude(height= 100, center=false, twist=45+animation_parameter_0_90_1, slices=20) {
-    // Create ring structure in 2D 
-    for (current_ring=animation_ring_structure) {
-        if (len(current_ring) == 4)
-            ring(current_ring[0], current_ring[1], current_ring[2], current_ring[3]);
-        else 
-            ring(current_ring[0], current_ring[1], current_ring[2]);
-    }
-    // Create bridges between rings
-    color("green")
-    bridges_between_rings(animation_ring_structure, animation_center_points, 1);
 }
