@@ -2,7 +2,7 @@ import subprocess
 import os
 
 # Create pictures from model
-openscad_file_path = "C:/Users/Ja/Downloads/OpenSCAD-2019.05-x86-64/openscad-2019.05/openscad.exe"
+openscad_file_path = "openscad.exe"
 scad_file_name = "model_file.scad"
 number_of_images = 100
 print("Start creating images with OpenSCAD")
@@ -15,7 +15,7 @@ for time_step in range(1, number_of_images):
 
 # Combine picture to animates GIF with imagemagick
 print("Combine pictures to animated GIF with imagemagick")
-imagemagick_convert_file_path = "C:/Users/Ja/Downloads/ImageMagick-7.0.8-62-portable-Q16-x64/convert.exe" 
+imagemagick_convert_file_path = "convert.exe" 
 subprocess.check_output(imagemagick_convert_file_path + " -delay 20 -loop 0 image_*.png animation.gif")
 
 # Delete image files
