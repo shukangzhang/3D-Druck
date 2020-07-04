@@ -1,5 +1,5 @@
 // Environment parameters
-$fn = 20;
+$fn = 40;
 
 /* Tool functions */
 // Build sum of flattened vector
@@ -106,20 +106,52 @@ module bridges_between_rings(ring_structure, center_points, thickness_bridge) {
 
 // Ring structure is an array with each element describing one ring in the form [number of objects, distance to center, radius of sphere, optional rotation]
 // It has to be sorted from outer most to inner most rings
-ring_structure = [
+
+// Time step animation variable
+t=1;
+
+// Basic Structure
+ring_structure_basic = [
     [12, 48, 2, 10],
-    [12, 36, 3],
     [4, 22, 4],
     [1, 0, 4]
 ];
 
-// Calculate center points of the structures to extrude
-center_points = get_center_points(ring_structure);
+// number_of_objects
+ring_structure_number_of_objects = [
+    [4+floor(26*t), 48, 2, 10],
+    [4+floor(8*t), 22, 4],
+    [1, 0, 4]
+];
 
+// distance_to_center
+ring_structure_distance_to_center = [
+    [12, 48+(floor(80*t)), 2, 10],
+    [4, 22+floor(60*t), 4],
+    [1, 0, 4]
+];
 
+ring_structure_radius_of_sphere = [
+    [12, 48, 2+10*t, 10],
+    [4, 22, 4-3*t],
+    [1, 0, 4+4*t]
+];
+
+ring_structure_rotation = [
+    [12, 48, 2, 10+180*t],
+    [4, 22, 4-90*t],
+    [1, 0, 4]
+];
+structure_height = 100;
+structure_twist = 90;
+bridge_thickness = 1;
+
+ring_structure = ring_structure_basic;
+//echo("t:", t);
+//echo("ring_structure:", ring_structure);
 // Extrude the 2D-Structure with a twist to create helixes
 color("lightgrey")
-linear_extrude(height= 100, center=false, twist=90, slices=20) {
+linear_extrude(height= structure_height, center=false, twist=structure_twist, slices=20) {
     // Create ring structure in 2D 
     for (current_ring=ring_structure) {
         if (len(current_ring) == 4)
@@ -128,5 +160,5 @@ linear_extrude(height= 100, center=false, twist=90, slices=20) {
             ring(current_ring[0], current_ring[1], current_ring[2]);
     }
     // Create bridges between rings
-    bridges_between_rings(ring_structure, center_points, 1);
+    bridges_between_rings(ring_structure, get_center_points(ring_structure), bridge_thickness);
 }
