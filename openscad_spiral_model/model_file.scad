@@ -16,20 +16,8 @@ function get_center_points(ring_structure) = [for (ring=ring_structure) let (deg
             [for (a=[0:ring[0]-1]) [distance_to_center*cos(a*degrees + ring[3]), distance_to_center*sin(a*degrees + ring[3])]]
     ];
 
-/* Old non-functioning
-// points in form [x, y]
-module square_between_two_points(point_one, point_two, thickness) {
-    length = norm(point_one - point_two);
-    degree = atan2(point_one[0] - point_two[0], point_one[1] - point_two[1]);
-    translate(point_one)
-    rotate(degree)
-    translate([0, -thickness/2])
-    square([length, thickness], center=false);
-}
-*/
-
-// Creates simple connection between two points in 2D
-// points in form [x, y]
+/* Modules for the structure */
+// Creates simple connection between two points in 2D; points in form [x, y]
 module square_between_two_points(point_one, point_two, thickness) {
     hull() {
         translate(point_one)
@@ -46,16 +34,6 @@ module ring(number_of_objects, distance_to_center, radius, rotation=0) {
         translate([distance_to_center, 0])
         circle(radius);
     }
-    // center points of the circles
-    //center_points_a = [for (a=[0:number_of_objects-1]) [distance_to_center*cos(a*degrees + rotation), distance_to_center*sin(a*degrees + rotation)]];
-    //echo("center_points", center_points_a);
-    /* 
-    // Test center points
-    for(c = center_points) {
-        translate(c)
-        cylinder(2, r=0.5);
-    } 
-    */
 }
 
 // For every center point find the closest center point from an ring closer to the center and connect them with a square
@@ -103,6 +81,8 @@ module bridges_between_rings(ring_structure, center_points, thickness_bridge) {
 
 }
 
+/* Input parameters */
+// Parameters for the 2D-structure
 
 // Ring structure is an array with each element describing one ring in the form [number of objects, distance to center, radius of sphere, optional rotation]
 // It has to be sorted from outer most to inner most rings
@@ -112,14 +92,24 @@ ring_structure = [
     [4, 22, 4],
     [1, 0, 4]
 ];
+// Thickness of the bridges connecting the circles
+bridge_thickness = 1;
 
+// Parameters for the 3D-structure
+// Height of the completed structure
+structure_height = 100;
+// Twist applied to the structure to build the helixes in degrees
+structure_twist = 90;
+
+/* Create the structure */
 // Calculate center points of the structures to extrude
 center_points = get_center_points(ring_structure);
 
 
 // Extrude the 2D-Structure with a twist to create helixes
+// Color for better contrast in preview mode
 color("lightgrey")
-linear_extrude(height= 100, center=false, twist=90, slices=20) {
+linear_extrude(height=structure_height, center=false, twist=structure_twist, slices=40) {
     // Create ring structure in 2D 
     for (current_ring=ring_structure) {
         if (len(current_ring) == 4)
@@ -128,5 +118,5 @@ linear_extrude(height= 100, center=false, twist=90, slices=20) {
             ring(current_ring[0], current_ring[1], current_ring[2]);
     }
     // Create bridges between rings
-    bridges_between_rings(ring_structure, center_points, 1);
+    bridges_between_rings(ring_structure, center_points, bridge_thickness);
 }
