@@ -23,23 +23,32 @@ ring_structure = [
 ];
 ```
 Example pictures for the ring_structure = [[12, 48, 2, 10], [12, 36, 3], [4, 22, 4], [1, 0, 4]]
-![Only Circles](https://github.com/shukangzhang/3D-Druck/blob/master/openscad_spiral_model/simple_part_only_circles.png)
+
+![Only Circles](simple_part_only_circles.png)
 Just the rings.
 
-![Circles and bridges](https://github.com/shukangzhang/3D-Druck/blob/master/openscad_spiral_model/simple_part_circles_with_bridges.png)
+![Circles and bridges](simple_part_circles_with_bridges.png)
 Bridges in yellow connecting the outer with the inner circles, building one complete 2D structure.
 
 #### Number of objects
 Number of created objects in the ring that are distributed evenly around the center of the structure.
 
+![Animation](animation_number_of_objects.gif)
+
 #### Distance to center
 Distance of the center points of the circles to the center of the ring structure.
+
+![Animation](animation_distance_to_center.gif)
 
 #### Radius of sphere
 It's the radius of the circles the ring consists off.
 
+![Animation](animation_radius_of_spheres.gif)
+
 #### [Rotation]
 Optional parameter that gives additional rotation to the current ring with the value in degree.
+
+![Animation](animation_rotation.gif)
 
 ### linear_extrude
 The linear_extrude command contains the other two interesting parameter, `height` and `twist`. This command extrudes the 2D structure created before and twists it to give it a helix like shape.
@@ -47,5 +56,9 @@ The linear_extrude command contains the other two interesting parameter, `height
 #### height
 Gives the height of the completed 3D structure.
 
+![Animation](animation_height.gif)
+
 #### twist
 Gives the twist that is added to the 2D structure on the way up to the height in degrees.
+
+![Animation](animation_twist.gif)
