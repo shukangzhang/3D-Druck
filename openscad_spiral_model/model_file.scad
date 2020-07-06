@@ -1,5 +1,5 @@
 // Environment parameters
-$fn = 20;
+$fn = 100;
 
 /* Tool functions */
 // Build sum of flattened vector
@@ -87,10 +87,10 @@ module bridges_between_rings(ring_structure, center_points, thickness_bridge) {
 // Ring structure is an array with each element describing one ring in the form [number of objects, distance to center, radius of sphere, optional rotation]
 // It has to be sorted from outer most to inner most rings
 ring_structure = [
-    [12, 48, 2, 10],
-    [12, 36, 3],
-    [4, 22, 4],
-    [1, 0, 4]
+    [12, 45, 2, 10],
+    [12, 36, 2],
+    [4, 20, 2],
+    [1, 0, 3]
 ];
 // Thickness of the bridges connecting the circles
 bridge_thickness = 1;
@@ -109,7 +109,7 @@ center_points = get_center_points(ring_structure);
 // Extrude the 2D-Structure with a twist to create helixes
 // Color for better contrast in preview mode
 color("lightgrey")
-linear_extrude(height=structure_height, center=false, twist=structure_twist, slices=40) {
+linear_extrude(height=structure_height, center=false, twist=structure_twist, slices=50) {
     // Create ring structure in 2D 
     for (current_ring=ring_structure) {
         if (len(current_ring) == 4)
@@ -120,3 +120,6 @@ linear_extrude(height=structure_height, center=false, twist=structure_twist, sli
     // Create bridges between rings
     bridges_between_rings(ring_structure, center_points, bridge_thickness);
 }
+
+// Create simple model of tube for sanity checking
+%cylinder(structure_height, d=94);
