@@ -28,6 +28,7 @@
 % Own added packages
 \usepackage{textcomp}
 \usepackage{makecell}
+\renewcommand\cellalign{tl}
 \usepackage{ulem}
 
 %=================================================================
@@ -168,6 +169,37 @@ Desirable	& Geometry    	& length  & up to 300 mm   & Scherf & 2020-06-23 \\
 \sout{Desirable}    & \sout{Geometry}  & \sout{outer wall thickness} & \sout{smaller 5 mm}   &  & 2020-06-23 \\
 Obligatory    & Geometry  & water flow direction  & fixed direction   & Scherf & 2020-06-23 \\
 
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Simulation Model Requirement Specification}
+ \begin{table}[H]
+\caption{Requirement specification list for the heat exchanger simulation model}
+\centering
+%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
+\begin{tabular}{llllll}
+\toprule
+\textbf{\makecell{Obligatory\\or Desirable}} & \textbf{Category}	& \textbf{Description}	& \textbf{Value} & \textbf{\makecell{Person\\Responsible}} & \textbf{Last Changed} \\
+\midrule
+%  &  &  &  &  &  \\
+Desirable & Input		& file type & STL   & Group A &  2020-07-05 \\
+Obligatory    & Input  &  fit within L=300 mm, D=94 mm cylinder &  & Group A &  2020-07-05 \\
+Obligatory    & Input  &  material & ? & Group A &  2020-07-05 \\
+%Obligatory    & Meshing  & ? & ? & Group A & 2020-07-05 \\
+Obligatory & Simulation Geometry & tube & L=500 mm, D=94 mm cylinder & Group A & 2020-07-05 \\
+Obligatory & Simulation Geometry & inlet Velocity & See Table A.1 & Group A & 2020-07-05 \\
+Obligatory & Simulation Geometry & wall type & adiabatic & Group A & 2020-07-05 \\
+Obligatory  & Output Values & pressure value at outlet & outlet pressure & Group A & 2020-07-05 \\
+Obligatory & Output Pictures & \makecell{cut along the length and center of the\\cylinder showing velocity} & & Group A & 2020-07-05 \\
+Obligatory & Output Pictures & \makecell{cut along the length and center of the\\cylinder showing temperature} & & Group A & 2020-07-05 \\
+Obligatory & Output Pictures & at outlet showing temperature & & Group A & 2020-07-05 \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
 %%% Besprechung 09.06.2020 Notizen (+ markierte Punkte wurden in der Anforderungliste uebernommen):
 % + Low pressure drop
 % + Höhere Temperaturtoleranz, da das bauteil heißer wird als das Wasser#
@@ -206,9 +238,24 @@ Obligatory    & Geometry  & water flow direction  & fixed direction   & Scherf &
 % Bis nächste Woche ein diskussionsfähiges Funktionsmodell vorlegen
 % Projektplanung der nächsten Wochen vorstellen
 % Nächste Besprechung Mittwoch 24.06.2020 um 10 Uhr 
-\bottomrule
-\end{tabular}
-\end{table}
+
+%%% Besprechung 24.06.2020
+% Optionen Wärmetest:
+% 1. Wärmebildkamera, mit kalter Luft durchströmen und denn auf einen vertikalen Schnitt gucken
+% 2. Thermoelemente einbauen, es gibt faserelektronisches Messsytem für Temperaturen
+%    Miopas als Firma miopas.de
+% Kleinerer Versuchsaufbau mit 1 Zoll Rohr möglich, selbe Sensoren (Druck) und ähnliches möglich
+% Sobald die Ärzte die Kontaktdaten erhalten haben und kontakt hergestellt wurde kann es losgehen
+% Sören am ehesten im IMW anrufen
+
+%%% Besprechung 30.06.2020
+% Statt Ansys können wir Star-CCM+ benutzen, da Sören sich deutlich besser damit auskennt
+% Uns wurde nochmals angeboten irgendwas zu Drucken
+% Plan für nächste Woche
+% - Simulationsmodell für Wärmeeintrag fertigmachen
+% - Anforderungsliste Simulationsmodell
+% - Simulationsmodell für Druckverlust ?
+% - Allererster Designentwurf als fertigungsgerechtes CAD-Modell
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
