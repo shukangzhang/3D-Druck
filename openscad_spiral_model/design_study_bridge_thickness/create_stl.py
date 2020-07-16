@@ -2,7 +2,7 @@ import subprocess
 from datetime import datetime
 
 # Create pictures from model
-openscad_file_path = "C:/Users/Ja/Downloads/OpenSCAD-2019.05-x86-64/openscad-2019.05/openscad.exe"
+openscad_file_path = "openscad.exe"
 scad_file_name = "mf_design.scad"
 number_of_images = 4
 
