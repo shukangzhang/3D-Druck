@@ -1,0 +1,640 @@
+Starting local server: starccm+ -server -np 4 -on localhost:4 -dmprojectid h26qa1wk8tmpnbqpx1lyqrvm28j2m5ih -dmprojectid2 b8bfe98d94d0dce80977cea3e1e8eb5ac5925600 -jobmanagerurl http://192.168.178.20:8357/ -taskid 5 -dmrunfile Design_4.mdxin  base_sim.sim
+WARNING: No cached password or password provided.
+         use '-pass' or '-cache' to provide password
+************************************************************************************
+Warning: CPU contention on 4 processes could not be resolved.
+         CPU affinity will be cleared on those processes.
+
+         This is a strong indication that some hosts are over-subscribed with
+         STAR-CCM+ processes. Over-subscribing a host is discouraged since it can
+         severely affect performance.
+************************************************************************************
+MPI Distribution : IBM Platform MPI-9.1.4.4
+Host 0 -- Ja-PC -- Ranks 0-3
+Process rank 0 Ja-PC 12008
+Total number of processes : 4
+
+Simcenter STAR-CCM+ 2020.1 Build 15.02.007 (win64/intel18.3vc14-r8)
+
+1 shared copy of ccmpsuite checked out from 1999@ls-starccm.rz.tu-clausthal.de using uuid = h26qa1wk8tmpnbqpx1lyqrvm28j2m5ih
+Feature ccmpsuite expires in 250 days
+1 copy of DOEtoken checked out from 1999@ls-starccm.rz.tu-clausthal.de
+Feature DOEtoken expires in 250 days
+Thu Jul 16 02:51:24 2020
+
+Server::start -host Ja-PC:47829
+Loading: base_sim.sim
+Loading module: StarMeshing
+Loading module: MeshingSurfaceRepair
+Loading module: StarResurfacer
+Loading module: StarDualMesher
+Loading module: SegregatedFlowModel
+Loading module: SegregatedEnergyModel
+Loading module: KeTurbModel
+Saved by:
+  Simcenter STAR-CCM+ 2020.1 Build 15.02.007 (win64/intel18.3vc14-r8) Np=4 
+Started Parasolid modeler version 31.01.188
+Running Design Star Batch
+
+ --- Starting Design Execution --- 
+
+
+Project Name	: design_studies 
+Study Name	: Bridge Thickness 
+Design Name	: Design 4 
+CWD	: C:\Users\Ja\ownCloud\SS2020\3D-Druck in der Verfahrenstechnik\amir_project\git\3D-Druck\openscad_spiral_model\design_study_bridge_thickness\.mdxruntime\design_studies_20200716015015\Bridge_Thickness\Design_4 
+Output Dir	: C:\Users\Ja\ownCloud\SS2020\3D-Druck in der Verfahrenstechnik\amir_project\git\3D-Druck\openscad_spiral_model\design_study_bridge_thickness\.mdxruntime\design_studies_20200716015015\Bridge_Thickness\Design_4\_out 
+
+
+---> Executing Design Operation : MdxDesignSetParametersOperation
+
+---> Executing Design Operation : MdxDesignUpdateModelOperation
+3 copies of DOEtoken checked out from 1999@ls-starccm.rz.tu-clausthal.de
+Feature DOEtoken expires in 250 days
+Reading surface from .stl file: mf_bridge_thickness_4_mm.stl
+Scaling from model units: millimeter
+Mesh Operation Replace Part complete. CPU Time: 11.47, Wall Time: 11.47, Memory: 145.71 MB
+Mesh Operation Tranlsate model_file complete. CPU Time: 0.32, Wall Time: 0.32, Memory: 155.29 MB
+Executing Discrete based Boolean Subtract operation...
+Mesh Operation Subtract complete. CPU Time: 11.45, Wall Time: 11.45, Memory: 186.38 MB
+
+---> Executing Design Operation : MdxDesignMeshingOperation
+No region-based volume meshers selected.
+Executing parts-based mesh operations
+----------------------------------------
+Executing Mesh Operation Automated Mesh 2
+----------------------------------------
+Mesh Generation is pseudo-parallel
+Checking mesh-CAD association...done.  No problems found.
+----------------------------------------
+Preparing surface for surface meshing in Parts: 
+----------------------------------------
+
+----------------------------------------
+finished preparing surface for surface meshing CPU Time: 0.48, Wall Time: 0.48, Memory: 249.88 MB
+----------------------------------------
+Projecting to CAD geometry
+----------------------------------------
+Executing Surface Remesher
+----------------------------------------
+initial number of faces: 265928
+
+Tri Quality     Faces    Percent
+  < 0.001       16075       6.0
+  < 0.01        87812      33.0
+  < 0.05       239999      90.2
+  < 0.1        249413      93.8
+  < 0.2        259320      97.5
+  < 0.3        262392      98.7
+  < 0.4        264990      99.6
+  < 0.5        265530      99.9
+  < 0.6        265670      99.9
+  < 0.7        265744      99.9
+  < 0.8        265784      99.9
+  < 0.9        265848     100.0
+  < 1.0        265928     100.0
+Worst quality is 1.506e-08
+   
+starting: Apply Global Limits
+      current number of faces: 200000
+
+   Tri Quality     Faces    Percent
+     < 0.001          12       0.0
+     < 0.01          161       0.1
+     < 0.05         5706       5.2
+     < 0.1         42096      38.1
+     < 0.2         71569      64.7
+     < 0.3         76936      69.6
+     < 0.4         84409      76.3
+     < 0.5         88771      80.3
+     < 0.6         92800      83.9
+     < 0.7         97371      88.0
+     < 0.8        101555      91.8
+     < 0.9        105196      95.1
+     < 1.0        110614     100.0
+   Worst quality is 0.0001964
+   
+starting: Improve Grading
+      current number of faces: 100000
+      current number of faces: 200000
+
+   Tri Quality     Faces    Percent
+     < 0.001           2       0.0
+     < 0.01           12       0.0
+     < 0.05           23       0.0
+     < 0.1            25       0.0
+     < 0.2            28       0.0
+     < 0.3            62       0.0
+     < 0.4           151       0.1
+     < 0.5           722       0.3
+     < 0.6          5536       2.0
+     < 0.7         17088       6.2
+     < 0.8         43672      15.9
+     < 0.9        112844      41.0
+     < 1.0        275398     100.0
+   Worst quality is 0.0003116
+   
+starting: Improve Quality
+      current number of faces: 300000
+
+   Post-processing
+         no intersections found
+      0 faces with quality below 0.05
+
+Tri Quality     Faces    Percent
+  < 0.001           0       0.0
+  < 0.01            0       0.0
+  < 0.05            0       0.0
+  < 0.1             0       0.0
+  < 0.2             0       0.0
+  < 0.3             0       0.0
+  < 0.4             0       0.0
+  < 0.5            11       0.0
+  < 0.6            93       0.0
+  < 0.7           852       0.3
+  < 0.8         14175       4.4
+  < 0.9         70550      22.1
+  < 1.0        318924     100.0
+Worst quality is 0.4132
+final number of faces: 318924
+                  |   Default Mesher |
+          Patches |                5 |
+        Triangles |           318924 |
+Aligned mesh not created for any patches.
+No thin patches removed.
+----------------------------------------
+Surface Remesher Completed: CPU Time: 76.52, Wall Time: 76.52, Memory: 348.16 MB
+----------------------------------------
+----------------------------------------
+Executing Automatic Surface Repair
+----------------------------------------
+Fixing surface
+   Removed 0 duplicate faces.
+ 
+   Surface Fixing Iteration 1:  
+ 
+   Surface Fixing Iteration 2:  
+0 close proximity(<0.01) faces
+   done SurfaceFixer CPU Time: 0.53, Wall Time: 0.53, Memory: 317.95 MB
+----------------------------------------
+Automatic Surface Repair Completed: CPU Time: 4.38, Wall Time: 4.38, Memory: 317.95 MB
+----------------------------------------
+Surface is valid for volume meshing.CPU Time: 4.88, Wall Time: 4.88, Memory: 240.77 MB
+Mesh Generation is pseudo-parallel
+Associating celltypes with parts, Memory: 240.77 MB
+ Correcting missing facetypes, Memory: 240.77 MB
+ done, (Correcting missing facetypes), CPU Time: 0.00, Wall Time: 0.00, Memory: 240.77 MB
+done, (Associating celltypes with parts), CPU Time: 0.00, Wall Time: 0.00, Memory: 240.77 MB
+
+**************************************************************
+* Poly mesher is running in optimal domain decomposition mode *
+**************************************************************
+
+determineIfGenerationIsParallel, Memory: 240.77 MB
+ Mesh Generation is pseudo-parallel
+done, (determineIfGenerationIsParallel), CPU Time: 0.00, Wall Time: 0.00, Memory: 240.77 MB
+
+**************************************************************
+* Tet mesher is running in optimal domain decomposition mode *
+**************************************************************
+
+Global Max Facetype = 58
+User set distribution function to be  GEOMETRIC PROGRESSION
+----------------------------------------
+Executing Prism Layer Subsurface
+----------------------------------------
+Number of procs used: 1
+Global Input surface contains 318924 faces, and 159442 vertices 
+   done, CPU Time: 0.43, Wall Time: 0.43, Memory: 349.61 MB
+ Building preprocessor done 
+Computing vertex normals
+ Exchanged the remote active status done
+Computing the normals done
+   done, CPU Time: 8.84, Wall Time: 8.84, Memory: 387.29 MB
+Computing Vertex normals done
+Computing surface proximity
+   done, CPU Time: 15.61, Wall Time: 15.61, Memory: 378.50 MB
+Constraining boundary vertices
+   done, CPU Time: 0.00, Wall Time: 0.00, Memory: 374.49 MB
+
+Iteration 1:
+-------------
+Initializing final vertex normals
+Creating subsurface (updating 159296 of 159296 active vertices)
+Checking 318560 face-based validity metrics
+   found 7074 invalid faces
+Preparing for next iteration
+
+Iteration 2:
+-------------
+Initializing final vertex normals
+Creating subsurface (updating 81059 of 159296 active vertices)
+Checking 167802 face-based validity metrics
+   found 0 invalid faces
+Checking vertex intersections for all vertices
+   found 7 intersecting vertices
+Preparing for next iteration
+
+Iteration 3:
+-------------
+Initializing final vertex normals
+Creating subsurface (updating 3540 of 159296 active vertices)
+Checking 7667 face-based validity metrics
+   found 0 invalid faces
+Checking vertex intersections around 3540 modified vertices
+
+Using edge recovery to fix prism layer boundaries...
+Recovering edges... Edges recover info:  0   0
+ Grow affected faces......
+Remeshing surface near recovered edges...
+Surface remeshed.  126 faces added to surface.
+CPU Time: 0.14, Wall Time: 0.14, Memory: 381.21 MB
+ Finished two levels of remeshing 
+Edge recovery was successful.
+CPU Time: 0.90, Wall Time: 0.90, Memory: 381.21 MB
+
+Checking true subsurface intersections for all vertices
+ no intersections 
+   found 0 intersecting vertices
+Checking subsurface orientation!!
+
+Iterations successful
+
+Combining interface maps
+   done, CPU Time: 0.00, Wall Time: 0.00, Memory: 381.21 MB
+Marking zero layer regions
+   found 118253 collapsed faces
+   found 15243 edges bounding collapsed regions
+   found 15241 vertices bounding collapsed regions
+Global Subsurface contains 319010 faces, and 159485 vertices 
+----------------------------------------
+Prism Layer Subsurface Completed: CPU Time: 47.35, Wall Time: 47.35, Memory: 381.96 MB
+----------------------------------------
+tet mesh cut facetype = 59
+tet mesh cut (PIM) facetype = 0
+----------------------------------------
+Executing Tetrahedral Mesher
+----------------------------------------
+
+start Dt3Mesher, CPU Time: 0.00, Wall Time: 0.00, Memory: 302.62 MB
+
+Setting up surface...
+
+
+Generating mesh...
+
+Generating template mesh...
+Generating custom mesh
+   computing sizes at surface faces
+   incorporating sizes
+Global template cell count (Before incorporating PDF value) = 420463
+Incorporating PDF values...
+Refining Tet Octree...
+   Updating octant halo info and sidedness
+   done(Updating octant halo info and sidedness)
+   Incorporating max/min triangle size.
+   Split 2956 octants.
+   Computing octant sidedness.
+   Iteration = 1:
+   Populating PDF value in octants.
+   Refining octants based on PDF criteria.
+   Split 0 octants.
+   Applying triangle size in pdf value..
+   done(Applying triangle size in pdf value), CPU Time: 0.80, Wall Time: 0.80, Memory: 465.75 MB
+   Smoothing mesh size.
+   Updating octant halo info and sidedness
+   done(Updating octant halo info and sidedness)
+  done, CPU Time: 10.12, Wall Time: 10.12, Memory: 425.66 MB
+Global template cell count (After incorporating PDF value) = 487691
+  done(Generating template mesh), CPU Time: 34.17, Wall Time: 34.17, Memory: 373.47 MB
+  Flagged 0 special Dt3 verts
+Checking the surface...
+  number of faces: 319010
+  done, CPU Time: 3.67, Wall Time: 3.67, Memory: 418.82 MB
+Generating initial tet mesh...
+Preparing mesh refinement...
+Preparing data for PDF interpolation...
+  done, CPU Time: 3.13, Wall Time: 3.13, Memory: 501.59 MB
+  Incorporating mesh controls...
+  Computing sidedness...
+  done (Preparing mesh refinement), CPU Time: 23.43, Wall Time: 23.43, Memory: 515.18 MB
+------------------------------------
+Estimated number of core poly cells: 255257
+------------------------------------
+Inserting boundary vertices...
+  vertices:   100000,       cells:    644587
+Inserting interior vertices...
+  Inserted 95772 interior vertices.
+  done, CPU Time: 64.49, Wall Time: 64.49, Memory: 602.79 MB
+Recovering boundary faces...
+Recovering core boundary faces...
+Recovering surface...
+  done, CPU Time: 2.66, Wall Time: 2.66, Memory: 528.40 MB
+  done (Recovering core boundary faces), CPU Time: 5.69, Wall Time: 5.69, Memory: 504.77 MB
+  done (ParallelBoundaryRecovery), CPU Time: 5.69, Wall Time: 5.69, Memory: 504.77 MB
+Global cell count before optimization = 1117845
+Optimizing core mesh... 
+  done optimize, CPU Time: 7.71, Wall Time: 7.71, Memory: 503.13 MB
+
+  final number of cells: 1094850
+  done, CPU Time: 119.51, Wall Time: 119.51, Memory: 503.13 MB
+
+end of Dt3Mesher, CPU Time: 119.53, Wall Time: 119.53, Memory: 503.13 MB
+----------------------------------------
+Tetrahedral Mesher Completed: CPU Time: 119.53, Wall Time: 119.53, Memory: 503.13 MB
+----------------------------------------
+Enforcing tet mesh strict face orientation...
+Marking special entities on volume mesh
+Marking special edges
+Marking special vertices
+ Marked Special Edges : 8157
+ Marked Special Verts : 92
+Building Dual Mesh, Memory: 553.25 MB
+ Computing complete interface maps, Memory: 609.31 MB
+ done, (Computing complete interface maps), CPU Time: 7.23, Wall Time: 7.23, Memory: 634.69 MB
+ DualMesher - setPresetSharpEntities, Memory: 634.69 MB
+ done, (DualMesher - setPresetSharpEntities), CPU Time: 0.00, Wall Time: 0.00, Memory: 634.69 MB
+ Executing DualMesher::executeSpecific, Memory: 634.69 MB
+  Tet mesh contains 1094850 cells
+  Enforce tet mesh strict face orientation --dualMesher, Memory: 634.69 MB
+  done, (Enforce tet mesh strict face orientation --dualMesher), CPU Time: 3.12, Wall Time: 3.12, Memory: 635.27 MB
+  Number of tet cells = 1094850
+  Executing Dualizer, Memory: 635.27 MB
+   Number of core     cells in initial mesh : 1094850
+   Number of boundary faces in initial mesh : 319010
+   Estimated number of core polyhedra       : 262902
+   presetSharpEdges            : 8157
+   presetSharpCorners          : 0
+   presetIrregularSharpCorners : 0
+   Found 8157 activeSharpEdges from preset edges 
+   Found 0 activeSharpEdges from irregular corners 
+   Found total 8157 activeSharpEdges 
+   Generating Polyhedral Cells, Memory: 661.53 MB
+    Starting generation, Memory: 661.53 MB
+     Preparing dual mesh, Memory: 661.53 MB
+      Creating interior vertices, Memory: 661.53 MB
+      done, (Creating interior vertices), CPU Time: 2.17, Wall Time: 2.17, Memory: 687.51 MB
+      Setting frozen cells by vertices, Memory: 688.02 MB
+       Found 0 frozen cells for optimization
+      done, (Setting frozen cells by vertices), CPU Time: 1.11, Wall Time: 1.11, Memory: 688.02 MB
+      Setting frozen cells by cells, Memory: 688.02 MB
+      done, (Setting frozen cells by cells), CPU Time: 0.00, Wall Time: 0.00, Memory: 688.02 MB
+      Maximizing cell center quality, Memory: 688.02 MB
+       Initializing cell centers, Memory: 688.02 MB
+       done, (Initializing cell centers), CPU Time: 1.62, Wall Time: 1.62, Memory: 706.59 MB
+       Initializing face data, Memory: 706.59 MB
+       done, (Initializing face data), CPU Time: 1.99, Wall Time: 1.99, Memory: 781.75 MB
+       Solving constrained optimization for 1094850 cells ...
+        Iteration 1    Total Normalized Displacement       1.00000    Constrained 1
+        Iteration 2    Total Normalized Displacement       0.10502    Constrained 2
+        Iteration 3    Total Normalized Displacement       0.01016    Constrained 2
+        Iteration 4    Total Normalized Displacement       0.00099    Constrained 2
+      done, (Maximizing cell center quality), CPU Time: 13.96, Wall Time: 13.96, Memory: 707.51 MB
+      Transferring dual vertices, Memory: 707.51 MB
+       transferring terminated, CPU Time: 0.08, Wall Time: 0.08, Memory: 688.94 MB
+      done, (Transferring dual vertices), CPU Time: 0.08, Wall Time: 0.08, Memory: 688.94 MB
+      Initializing dual cells, Memory: 688.94 MB
+       Initializing counters, Memory: 696.96 MB
+       done, (Initializing counters), CPU Time: 1.64, Wall Time: 1.64, Memory: 706.20 MB
+       Primal mesh contains 256490 vertices
+      done, (Initializing dual cells), CPU Time: 1.96, Wall Time: 1.96, Memory: 707.72 MB
+     done, (Preparing dual mesh), CPU Time: 20.29, Wall Time: 20.29, Memory: 797.50 MB
+     Populating dual mesh, Memory: 797.50 MB
+      Creating sharp edges mid vertices on boundary, Memory: 797.50 MB
+       User defined sharp edges : 8157
+      done, (Creating sharp edges mid vertices on boundary), CPU Time: 0.20, Wall Time: 0.20, Memory: 808.70 MB
+      Creating edge boundary faces, Memory: 808.70 MB
+       created 478515 dual edge boundary faces CPU Time: 2.73, Wall Time: 2.73, Memory: 826.54 MB
+      done, (Creating edge boundary faces), CPU Time: 2.73, Wall Time: 2.73, Memory: 826.54 MB
+      Creating interior faces, Memory: 826.54 MB
+       created 1000000 dual interior faces CPU Time: 11.56, Wall Time: 11.56, Memory: 867.82 MB
+       created 1032340 dual faces CPU Time: 12.11, Wall Time: 12.11, Memory: 869.34 MB
+      done, (Creating interior faces), CPU Time: 12.11, Wall Time: 12.11, Memory: 869.34 MB
+      Creating boundary faces, Memory: 869.34 MB
+       created 159485 dual boundary faces CPU Time: 5.52, Wall Time: 5.52, Memory: 896.96 MB
+      done, (Creating boundary faces), CPU Time: 5.52, Wall Time: 5.52, Memory: 896.96 MB
+      Updating boundary faces, Memory: 896.96 MB
+      done, (Updating boundary faces), CPU Time: 2.07, Wall Time: 2.07, Memory: 934.40 MB
+     done, (Populating dual mesh), CPU Time: 22.64, Wall Time: 22.64, Memory: 934.40 MB
+     Dual Mesh contains 256490 cells
+     Checking mesh, Memory: 934.40 MB
+      Checking topology
+     done, (Checking mesh), CPU Time: 9.75, Wall Time: 9.75, Memory: 934.40 MB
+    done, (Starting generation), CPU Time: 52.87, Wall Time: 52.87, Memory: 934.40 MB
+   done, (Generating Polyhedral Cells), CPU Time: 52.89, Wall Time: 52.89, Memory: 908.34 MB
+   Splitting dual interior sharp faces, Memory: 908.34 MB
+    Candidate faces = 0
+    Split faces = 0
+   done, (Splitting dual interior sharp faces), CPU Time: 0.00, Wall Time: 0.00, Memory: 908.34 MB
+   Splitting dual boundary sharp cells, Memory: 908.34 MB
+    Tolerance = 0.000177007
+   done, (Splitting dual boundary sharp cells), CPU Time: 0.68, Wall Time: 0.68, Memory: 904.91 MB
+   No collapsible vertices.
+  done, (Executing Dualizer), CPU Time: 54.43, Wall Time: 54.43, Memory: 904.91 MB
+  Volume mesh contains 256490 polyhedral cells
+ done, (Executing DualMesher::executeSpecific), CPU Time: 57.96, Wall Time: 57.96, Memory: 833.93 MB
+done, (Building Dual Mesh), CPU Time: 67.39, Wall Time: 67.39, Memory: 788.95 MB
+Checking dual mesh prism-extrusion data...
+Building Prisms, Memory: 782.61 MB
+ Associating celltypes with parts, Memory: 782.61 MB
+  Correcting missing facetypes, Memory: 782.61 MB
+  done, (Correcting missing facetypes), CPU Time: 0.10, Wall Time: 0.10, Memory: 783.52 MB
+ done, (Associating celltypes with parts), CPU Time: 0.50, Wall Time: 0.50, Memory: 783.52 MB
+----------------------------------------
+Executing Prism Layer Extrusion
+----------------------------------------
+Marking vertices, edges and faces to extrude
+   found 66783 zero layer subsurface vertices
+   done, CPU Time: 4.76, Wall Time: 4.76, Memory: 801.64 MB
+Modifying number of layers for cells adjacent to retracted regions
+   modified number of layers for 15267 faces
+Creating extrusion layer mesh
+   default number of layers = 3
+   default stretching = 1.5
+   done, CPU Time: 0.00, Wall Time: 0.00, Memory: 815.14 MB
+ chopping percentage set to 50
+Extrusion mesh contains:
+   216881 cells
+   933960 faces
+   1340580 edges
+   623471 vertices
+----------------------------------------
+Prism Layer Extrusion Completed: CPU Time: 12.73, Wall Time: 12.73, Memory: 929.50 MB
+----------------------------------------
+Assembling core mesh and prismatic mesh.
+done, (Building Prisms), CPU Time: 16.35, Wall Time: 16.35, Memory: 910.02 MB
+Recovering interface conformality, Memory: 910.02 MB
+Found 0 facetype pairs to match
+ Fixing invalid cells, Memory: 910.02 MB
+ done, (Fixing invalid cells), CPU Time: 0.00, Wall Time: 0.00, Memory: 910.02 MB
+done, (Recovering interface conformality), CPU Time: 0.10, Wall Time: 0.10, Memory: 910.02 MB
+
+Skipping conformality check for 0 interfaces in contact mode.
+   Final Summary      Total conformal interfaces: 0/0      Total NOT conformal interfaces: 0/0
+done, (Checking Interface Conformality), CPU Time: 0.27, Wall Time: 0.27, Memory: 594.69 MB
+Associating celltypes with parts, Memory: 582.85 MB
+ Correcting missing facetypes, Memory: 582.85 MB
+ done, (Correcting missing facetypes), CPU Time: 0.14, Wall Time: 0.14, Memory: 582.85 MB
+done, (Associating celltypes with parts), CPU Time: 0.73, Wall Time: 0.73, Memory: 583.43 MB
+Splitting concave cells, Memory: 583.43 MB
+ Found 1902 cells to split
+ Executing Splitter..., Memory: 583.43 MB
+  Executing Splitter..., Memory: 586.04 MB
+  done, (Executing Splitter...), CPU Time: 0.20, Wall Time: 0.20, Memory: 586.04 MB
+ done, (Executing Splitter...), CPU Time: 8.83, Wall Time: 8.83, Memory: 586.04 MB
+ after splitter.execute, CPU Time: 17.56, Wall Time: 17.56, Memory: 586.04 MB
+done, (Splitting concave cells), CPU Time: 17.56, Wall Time: 17.56, Memory: 586.04 MB
+Optimizing mesh quality, Memory: 586.04 MB
+ ParallelOptimizer::execute, Memory: 586.04 MB
+  executing mesh optimizer in serial ...
+  Mesh Optimization, Memory: 586.04 MB
+   Computing cell volumes and centroids, Memory: 620.41 MB
+   done, (Computing cell volumes and centroids), CPU Time: 4.60, Wall Time: 4.60, Memory: 635.00 MB
+   Tabu Search Optimizing, Memory: 654.95 MB
+    Quality thresholds:
+    minFaceValidity   minCellQuality   minFacePlanarity   minVolumeChange   minSkewness
+          1.000000         0.000010           0.700000          0.011000      0.089000
+    Starting optimization on 475152     candidate cells
+    Found 0 vertices on imap with valid transformation
+    Start outer iteration #1
+    Found 3798 cells that need optimization
+    Found 5353 vertices that need optimization
+    Quality optimization for 5353  vertices ...
+    Global minimum quality metrics after outer iteration #1:
+    minFaceValidity   minCellQuality   minFacePlanarity   minVolumeChange   minSkewness
+          0.900982         0.000880           0.364819          0.001884     -0.354026
+    Start outer iteration #2
+    Found 108 cells that need optimization
+    Found 66 vertices that need optimization
+    Quality optimization for 66  vertices ...
+    Global minimum quality metrics after outer iteration #2:
+    minFaceValidity   minCellQuality   minFacePlanarity   minVolumeChange   minSkewness
+          0.903923         0.011834           0.700789          0.006118     -0.327215
+    Start outer iteration #3
+    Found 53 cells that need optimization
+    Found 20 vertices that need optimization
+    Quality optimization for 20  vertices ...
+    Global minimum quality metrics after outer iteration #3:
+    minFaceValidity   minCellQuality   minFacePlanarity   minVolumeChange   minSkewness
+          0.905294         0.012066           0.700479          0.007994     -0.324246
+   done, (Tabu Search Optimizing), CPU Time: 23.10, Wall Time: 23.10, Memory: 657.17 MB
+  done, (Mesh Optimization), CPU Time: 29.24, Wall Time: 29.24, Memory: 606.02 MB
+ done, (ParallelOptimizer::execute), CPU Time: 29.24, Wall Time: 29.24, Memory: 606.02 MB
+done, (Optimizing mesh quality), CPU Time: 29.25, Wall Time: 29.25, Memory: 606.02 MB
+Loading/configuring connectivity (old|new partitions: 4|4)
+  region_fluid_domain (index 1): 256981 cells, 1205523 faces, 893075 verts.
+Configuring finished
+Reading material property database "E:\Siemens\15.02.007-R8\STAR-CCM+15.02.007-R8\star\data\props.mdb"...
+Converting mesh into finite volume representation in Region region_fluid_domain
+   Converted mesh for region_fluid_domain CPU Time: 9.00, Wall Time: 9.00, Memory: 787.32 MB
+
+ Partitioning region_fluid_domain (475152 cells)
+region_fluid_domain: Interpolating solution onto new mesh... 
+ Interpolating cell data
+ Storages being interpolated are : [ Density ApparentPressureGradient StoredDivergence VoidFraction V_Velocity EffectiveViscosity U_Velocity StaticEnthalpy Pressure TotalEnthalpy Solidity Temperature StoredStrainRate TotalEnergy TurbulentDissipationRate TurbulentKineticEnergy TurbulentViscosity VolumeFraction W_Velocity]
+ Interpolating boundary data
+ Storages being interpolated are : [ BoundaryHeatFluxCoefficientC BoundaryConductionHeatFlux BoundaryHeatFluxCoefficientA BoundaryHeatFlux BoundaryHeatFluxCoefficientB VolumeFraction BoundaryHeatFluxCoefficientD FaceFlux Density W_Velocity SlipVelocity InterfaceInternalHeatFlux InternalBoundaryHeatFluxCoefficientA InternalBoundaryHeatFluxCoefficientB InternalBoundaryHeatFluxCoefficientC InternalBoundaryHeatFluxCoefficientD Pressure SlipTemperature U_Velocity StaticEnthalpy Temperature TotalEnergy TotalEnthalpy TurbulentDissipationRate TurbulentKineticEnergy Ustar V_Velocity WallFunctionUSlipFactor WallFunctionUplus WallShear]
+ Storages being interpolated are : [ BoundaryHeatFluxCoefficientC BoundaryConductionHeatFlux BoundaryHeatFluxCoefficientA BoundaryHeatFlux BoundaryHeatFluxCoefficientB VolumeFraction BoundaryHeatFluxCoefficientD FaceFlux Density W_Velocity SlipVelocity InterfaceInternalHeatFlux InternalBoundaryHeatFluxCoefficientA InternalBoundaryHeatFluxCoefficientB InternalBoundaryHeatFluxCoefficientC InternalBoundaryHeatFluxCoefficientD Pressure SlipTemperature U_Velocity StaticEnthalpy Temperature TotalEnergy TotalEnthalpy TurbulentDissipationRate TurbulentKineticEnergy Ustar V_Velocity WallFunctionUSlipFactor WallFunctionUplus WallShear]
+ Storages being interpolated are : [ FaceFlux Density BoundaryAdvectionHeatFlux W_Velocity BoundaryConductionHeatFlux BoundaryHeatFlux FlowAngle Pressure U_Velocity StaticEnthalpy Temperature TotalEnergy TotalEnthalpy TurbulentDissipationRate TurbulentKineticEnergy V_Velocity VolumeFraction]
+ Storages being interpolated are : [ FaceFlux Density BoundaryAdvectionHeatFlux W_Velocity BoundaryConductionHeatFlux Pressure BoundaryHeatFlux U_Velocity StaticEnthalpy Temperature TotalEnergy TotalEnthalpy TurbulentDissipationRate TurbulentKineticEnergy V_Velocity VolumeFraction]
+  Time taken to interpolate the data  = 9.63833
+Finished Interpolation.
+Mesh conversion completed, CPU Time: 26.80, Wall Time: 26.80, Memory: 339.59 MB
+Converting mesh into finite volume representation completed: CPU Time: 26.80, Wall Time: 26.80, Memory: 339.59 MB
+	Cells: 475152	Faces: 2342140	Vertices: 1815787
+----------------------------------------
+Mesh Operation Automated Mesh 2 complete. CPU Time: 424.60, Wall Time: 424.60, Memory: 343.57 MB
+----------------------------------------
+Volume Meshing Pipeline Completed: CPU Time: 424.61, Wall Time: 424.61, Memory: 344.79 MB
+	Cells: 475152	Faces: 2342140	Vertices: 1815787
+
+---> Executing Design Operation : MdxDesignSolverOperation
+Re-partitioning
+Wall distance limited to 1e-06 on 1 cells in region_fluid_domain
+     Iteration     Continuity     X-momentum     Y-momentum     Z-momentum         Energy            Tke            Tdr 
+           145   4.354816e-01   4.218959e-01   4.308921e-01   5.628846e-02   2.849565e-01   1.454542e-01   6.284327e-02 
+           146   2.513197e-01   1.652917e-01   1.706035e-01   4.155354e-02   7.398840e-02   5.064629e-02   3.604099e-02 
+           147   1.944222e-01   8.763835e-02   8.907836e-02   2.418524e-02   3.571598e-02   3.395585e-02   2.968870e-02 
+           148   1.605231e-01   6.134962e-02   6.181367e-02   1.863442e-02   2.878023e-02   2.583374e-02   3.151129e-02 
+           149   1.321647e-01   4.740728e-02   4.735754e-02   1.720609e-02   2.707821e-02   2.095908e-02   2.773098e-02 
+           150   1.081717e-01   3.916435e-02   3.877710e-02   1.609571e-02   2.418724e-02   1.882953e-02   2.277787e-02 
+           151   8.787110e-02   3.301201e-02   3.290509e-02   1.611486e-02   2.023837e-02   1.814368e-02   1.840216e-02 
+           152   7.073365e-02   2.919308e-02   2.914361e-02   1.612819e-02   1.747056e-02   2.003745e-02   1.511146e-02 
+           153   5.953108e-02   2.678787e-02   2.666890e-02   1.468641e-02   1.461825e-02   1.913753e-02   1.340876e-02 
+           154   5.107323e-02   2.452263e-02   2.430354e-02   1.268507e-02   1.414952e-02   1.918047e-02   1.371263e-02 
+     Iteration     Continuity     X-momentum     Y-momentum     Z-momentum         Energy            Tke            Tdr 
+           155   4.421647e-02   2.559123e-02   2.528994e-02   1.007491e-02   1.257717e-02   1.822914e-02   1.452630e-02 
+           156   3.924127e-02   2.546576e-02   2.557252e-02   8.852148e-03   1.155631e-02   1.814699e-02   1.648007e-02 
+           157   3.508826e-02   2.652924e-02   2.675275e-02   8.811374e-03   1.099448e-02   1.979531e-02   1.805782e-02 
+           158   3.219267e-02   2.779341e-02   2.796242e-02   8.845764e-03   1.076885e-02   2.348703e-02   1.987666e-02 
+           159   3.274792e-02   2.892934e-02   2.897016e-02   8.785342e-03   1.030961e-02   2.654944e-02   2.307646e-02 
+           160   3.160837e-02   2.996453e-02   3.004450e-02   8.605306e-03   9.939473e-03   2.634261e-02   2.791299e-02 
+           161   3.097963e-02   3.060981e-02   3.075319e-02   8.366263e-03   9.559365e-03   2.520262e-02   3.098587e-02 
+           162   3.065095e-02   3.078821e-02   3.105754e-02   8.018240e-03   9.238836e-03   2.393740e-02   3.195663e-02 
+           163   3.056659e-02   3.057564e-02   3.089483e-02   7.591641e-03   8.989176e-03   2.281685e-02   3.102938e-02 
+           164   3.064634e-02   3.002639e-02   3.030288e-02   7.114997e-03   8.739520e-03   2.171777e-02   2.870863e-02 
+     Iteration     Continuity     X-momentum     Y-momentum     Z-momentum         Energy            Tke            Tdr 
+           165   3.058731e-02   2.922531e-02   2.943789e-02   6.639106e-03   8.474356e-03   2.063705e-02   2.579791e-02 
+           166   3.023549e-02   2.826311e-02   2.840177e-02   6.186060e-03   8.233107e-03   1.966593e-02   2.313756e-02 
+           167   3.153071e-02   2.702084e-02   2.708229e-02   5.734416e-03   7.936625e-03   1.879853e-02   2.099623e-02 
+           168   2.938807e-02   2.551653e-02   2.555162e-02   5.404774e-03   7.594648e-03   1.812113e-02   1.945850e-02 
+           169   2.831307e-02   2.417083e-02   2.413165e-02   5.183516e-03   7.164764e-03   1.757545e-02   1.845406e-02 
+           170   2.757260e-02   2.310845e-02   2.292224e-02   5.028393e-03   6.730638e-03   1.715364e-02   1.773386e-02 
+           171   2.742551e-02   2.210461e-02   2.189279e-02   4.912246e-03   6.266641e-03   1.674828e-02   1.717366e-02 
+           172   2.659004e-02   2.103894e-02   2.084280e-02   4.778979e-03   5.785504e-03   1.626374e-02   1.682007e-02 
+           173   2.542062e-02   1.996917e-02   1.984581e-02   4.623079e-03   5.317148e-03   1.557115e-02   1.664395e-02 
+           174   2.414302e-02   1.893341e-02   1.887178e-02   4.447572e-03   4.888849e-03   1.461084e-02   1.640299e-02 
+     Iteration     Continuity     X-momentum     Y-momentum     Z-momentum         Energy            Tke            Tdr 
+           175   2.273679e-02   1.795903e-02   1.794191e-02   4.254148e-03   4.513497e-03   1.340050e-02   1.588255e-02 
+           176   2.122936e-02   1.703958e-02   1.703890e-02   4.050824e-03   4.200263e-03   1.205032e-02   1.505704e-02 
+           177   1.977197e-02   1.618181e-02   1.616598e-02   3.846927e-03   3.965270e-03   1.072881e-02   1.407671e-02 
+           178   1.962218e-02   1.525687e-02   1.527945e-02   3.633428e-03   3.731112e-03   9.742167e-03   1.311041e-02 
+           179   1.815525e-02   1.431971e-02   1.438069e-02   3.448585e-03   3.514856e-03   9.276520e-03   1.215832e-02 
+           180   1.703501e-02   1.353815e-02   1.358179e-02   3.314177e-03   3.355204e-03   9.405606e-03   1.114631e-02 
+           181   1.666982e-02   1.293705e-02   1.293876e-02   3.184075e-03   3.194876e-03   9.947155e-03   1.015062e-02 
+           182   1.567250e-02   1.233177e-02   1.235982e-02   3.063700e-03   3.071307e-03   1.063674e-02   9.249465e-03 
+           183   1.475640e-02   1.174494e-02   1.182131e-02   2.959469e-03   2.968562e-03   1.123264e-02   8.460178e-03 
+           184   1.374464e-02   1.119191e-02   1.128936e-02   2.859721e-03   2.865376e-03   1.158210e-02   7.806236e-03 
+     Iteration     Continuity     X-momentum     Y-momentum     Z-momentum         Energy            Tke            Tdr 
+           185   1.286508e-02   1.065727e-02   1.076250e-02   2.767466e-03   2.740632e-03   1.160310e-02   7.271470e-03 
+           186   1.258700e-02   1.004163e-02   1.016920e-02   2.671139e-03   2.608456e-03   1.127774e-02   6.837309e-03 
+           187   1.204849e-02   9.583843e-03   9.672997e-03   2.594895e-03   2.465895e-03   1.066783e-02   6.441163e-03 
+           188   1.136562e-02   9.064117e-03   9.152198e-03   2.519448e-03   2.306873e-03   9.808378e-03   6.071564e-03 
+           189   1.088264e-02   8.547606e-03   8.644241e-03   2.449833e-03   2.136156e-03   8.779215e-03   5.706194e-03 
+           190   1.040280e-02   8.036347e-03   8.132031e-03   2.384915e-03   1.962031e-03   7.689153e-03   5.345743e-03 
+           191   9.922675e-03   7.536631e-03   7.626623e-03   2.321528e-03   1.795886e-03   6.630345e-03   5.002074e-03 
+           192   9.474065e-03   7.054748e-03   7.138514e-03   2.254884e-03   1.648490e-03   5.688860e-03   4.690842e-03 
+           193   9.062907e-03   6.602011e-03   6.680299e-03   2.187430e-03   1.526670e-03   4.922281e-03   4.424161e-03 
+           194   8.707194e-03   6.195456e-03   6.257906e-03   2.114602e-03   1.434773e-03   4.344588e-03   4.206251e-03 
+     Iteration     Continuity     X-momentum     Y-momentum     Z-momentum         Energy            Tke            Tdr 
+           195   8.411721e-03   5.831002e-03   5.876364e-03   2.039350e-03   1.369357e-03   3.927065e-03   4.029878e-03 
+           196   8.152838e-03   5.506221e-03   5.536812e-03   1.960314e-03   1.323191e-03   3.616533e-03   3.881015e-03 
+           197   7.903066e-03   5.215097e-03   5.237781e-03   1.877342e-03   1.288026e-03   3.357449e-03   3.743484e-03 
+           198   7.675970e-03   4.955700e-03   4.977741e-03   1.792327e-03   1.253232e-03   3.114170e-03   3.602220e-03 
+           199   7.457861e-03   4.729802e-03   4.754653e-03   1.707176e-03   1.211836e-03   2.874778e-03   3.448225e-03 
+
+---> Executing Design Operation : MdxDesignGetReportOperation
+           200   7.247972e-03   4.526793e-03   4.552474e-03   1.623308e-03   1.161098e-03   2.648926e-03   3.280124e-03 
+
+---> Executing Design Operation : MdxDesignGetReportOperation
+
+---> Executing Design Operation : MdxDesignGetReportOperation
+
+---> Executing Design Operation : MdxDesignExportSceneFileOperation
+
+---> Executing Design Operation : MdxDesignExportSceneFileOperation
+
+---> Executing Design Operation : MdxDesignExportHardcopyOperation
+
+---> Executing Design Operation : MdxDesignExportHardcopyOperation
+
+---> Executing Design Operation : MdxDesignExportHardcopyOperation
+
+---> Executing Design Operation : MdxDesignExportHardcopyOperation
+
+---> Executing Design Operation : MdxDesignExportHardcopyOperation
+
+ --- End of Design Execution --- 
+
+Design STAR-CCM+ simulation completed
+Server process exited with code : 0
