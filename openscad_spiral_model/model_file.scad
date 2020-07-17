@@ -99,7 +99,7 @@ bridge_thickness = 1;
 
 // Parameters for the 3D-structure
 // Height of the completed structure
-structure_height = 100;
+structure_height = 200;
 // Twist applied to the structure to build the helixes in degrees
 structure_twist = 90;
 
@@ -111,21 +111,39 @@ center_points = get_center_points(ring_structure);
 // Extrude the 2D-Structure with a twist to create helixes
 // Color for better contrast in preview mode
 color("lightgrey")
-linear_extrude(height=structure_height, center=false, twist=structure_twist, slices=50) {
-    // Create ring structure in 2D 
-    for (current_ring=ring_structure) {
-        // Check if ring has elements
-        if (current_ring[0] == 0) {}
-        // Check if ring has rotation
-        else if (len(current_ring) == 4)
-            ring(current_ring[0], current_ring[1], current_ring[2], current_ring[3]);
-        // Ring has no rotation
-        else 
-            ring(current_ring[0], current_ring[1], current_ring[2]);
+union() {
+    linear_extrude(height=structure_height/2, center=false, twist=structure_twist, slices=50) {
+        // Create ring structure in 2D 
+        for (current_ring=ring_structure) {
+            // Check if ring has elements
+            if (current_ring[0] == 0) {}
+            // Check if ring has rotation
+            else if (len(current_ring) == 4)
+                ring(current_ring[0], current_ring[1], current_ring[2], current_ring[3]);
+            // Ring has no rotation
+            else 
+                ring(current_ring[0], current_ring[1], current_ring[2]);
+        }
+        // Create bridges between rings
+        bridges_between_rings(ring_structure, center_points, bridge_thickness);
     }
-    // Create bridges between rings
-    bridges_between_rings(ring_structure, center_points, bridge_thickness);
+    translate([0, 0, structure_height/2])
+    rotate(-structure_twist)
+    linear_extrude(height=structure_height/2, center=false, twist=-structure_twist, slices=50) {
+        // Create ring structure in 2D 
+        for (current_ring=ring_structure) {
+            // Check if ring has elements
+            if (current_ring[0] == 0) {}
+            // Check if ring has rotation
+            else if (len(current_ring) == 4)
+                ring(current_ring[0], current_ring[1], current_ring[2], current_ring[3]);
+            // Ring has no rotation
+            else 
+                ring(current_ring[0], current_ring[1], current_ring[2]);
+        }
+        // Create bridges between rings
+        bridges_between_rings(ring_structure, center_points, bridge_thickness);
+    }
 }
-
 // Create simple model of tube for sanity checking
 %cylinder(structure_height, d=94);
