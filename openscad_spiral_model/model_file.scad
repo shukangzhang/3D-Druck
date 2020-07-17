@@ -8,10 +8,12 @@ function add(v, i=0, r=0) = i<len(v) ? add(v, i+1, r+v[i]) : r;
 function flatten(l) = [ for (a = l) for (b = a) b ];
 // Calculate center points of ring structure
 function get_center_points(ring_structure) = [for (ring=ring_structure) let (degrees=360/ring[0], distance_to_center=ring[1])
-        // no rotation is given for the current ring
-        if (len(ring)==3) 
+        // Check if current ring contains elements
+        if (ring[0]==0) []
+        // No rotation is given for the current ring
+        else if (len(ring)==3) 
             [for (a=[0:ring[0]-1]) [distance_to_center*cos(a*degrees), distance_to_center*sin(a*degrees)]] 
-        // rotation is given and must be added for the current ring
+        // Rotation is given and must be added for the current ring
         else 
             [for (a=[0:ring[0]-1]) [distance_to_center*cos(a*degrees + ring[3]), distance_to_center*sin(a*degrees + ring[3])]]
     ];
@@ -112,8 +114,12 @@ color("lightgrey")
 linear_extrude(height=structure_height, center=false, twist=structure_twist, slices=50) {
     // Create ring structure in 2D 
     for (current_ring=ring_structure) {
-        if (len(current_ring) == 4)
+        // Check if ring has elements
+        if (current_ring[0] == 0) {}
+        // Check if ring has rotation
+        else if (len(current_ring) == 4)
             ring(current_ring[0], current_ring[1], current_ring[2], current_ring[3]);
+        // Ring has no rotation
         else 
             ring(current_ring[0], current_ring[1], current_ring[2]);
     }
