@@ -1,6 +1,21 @@
 # Spiral Model
 Constructed with OpenSCAD (https://www.openscad.org/) Version 2019.05.
 
+## Expected effects of input parameters to output
+Output parameters: Average Temperature (AT), Temperature Deviation (TD), Pressure Drop Inlet to Outlet (PD)
+
+Higher **number_of_objects** => Greater surface area, greater mass, higher **PD**, higher **AT** 
+
+**distance_to_center** can't really be changed because of the limit to the maximum distance
+
+Higher **radius_of_sphere** => Greater surface area, greater mass, higher **PD**, higher **AT**
+
+**rotation** might have different effects based on the fact wether bridges are added or avoided
+
+Higher **height** => Greater surface area, greater mass, higher **AT**
+
+Higher **twist** => Greater surface area, greater mass, higher **AT**, less **TD**, higher **PD**
+
 ## Usage
 
 ### ring_structure
