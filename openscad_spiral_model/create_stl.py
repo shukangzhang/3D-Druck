@@ -1,6 +1,10 @@
 import subprocess
 from datetime import datetime
 from itertools import product
+import os.path
+
+def time_string():
+    return "[" + str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "] "
 
 # class for holding infos for one parameter
 # start -> start of the range, including start
@@ -29,9 +33,8 @@ class param:
 			return_array = [int(a) for a in return_array]
 		return return_array
 # Create pictures from model
-openscad_file_path = "C:/Users/Ja/Downloads/OpenSCAD-2019.05-x86-64/openscad-2019.05/openscad.exe"
-scad_file_name = "model_file.scad"
-number_of_images = 4
+openscad_file_path = "S:/Team A/openscad-2019.05/openscad.exe"
+scad_file_name = "S:/Team A/model_file.scad"
 
 bridge_thickness = param(1, 4, 3)
 structure_height = param(100, 100, 1)
@@ -42,8 +45,8 @@ ring_3 = param(4, 8, 3, cast_to_int=True)
 params = [bridge_thickness, structure_height, structure_twist, ring_1, ring_2, ring_3]
 param_sets = list(product(*[param.generate_range() for param in params]))
 
-print("[" + str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "] Start creating STLs with OpenSCAD")
-for param_set in param_sets[:5]:
+print(time_string() + "Start creating STLs with OpenSCAD")
+for param_set in param_sets:
 	parameter_string = (
 	" -D bridge_thickness={bridge_thickness} " +
 	"-D structure_height={structure_height} " +
@@ -57,9 +60,12 @@ for param_set in param_sets[:5]:
 			ring_3=param_set[5],
 	)
 	output_file_name = "mf_" + str(param_set).replace(" ", "") + ".stl"
-	command_string = openscad_file_path + " -o " + output_file_name + parameter_string + " " + scad_file_name
+	if os.path.exists(output_file_name):
+		print(time_string() + output_file_name + " already exists!")
+		continue
+	command_string = openscad_file_path + " -o \"" + output_file_name + "\"" +  parameter_string + " \"" + scad_file_name + "\""
 	#print(command_string)
-	print("[" + str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "] Creating " + output_file_name)
+	print(time_string() + "Creating " + output_file_name)
 	subprocess.check_output(command_string)
 
 print("[" + str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "] Finished creating STLs with OpenSCAD")
