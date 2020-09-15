@@ -37,7 +37,7 @@ openscad_file_path = "S:/Team A/openscad-2019.05/openscad.exe"
 scad_file_name = "S:/Team A/model_file.scad"
 
 bridge_thickness = param(1, 4, 3)
-structure_height = param(100, 100, 1)
+structure_height = param(200, 200, 1)
 structure_twist = param(90, 135, 3)
 ring_1 = param(12, 24, 4, cast_to_int=True)
 ring_2 = param(0, 12, 2, cast_to_int=True)
@@ -59,7 +59,7 @@ for param_set in param_sets:
 			ring_2=param_set[4],
 			ring_3=param_set[5],
 	)
-	output_file_name = "mf_" + str(param_set).replace(" ", "") + ".stl"
+	output_file_name = "mf_" + str(param_set).replace(" ", "").replace(".","_") + ".stl"
 	if os.path.exists(output_file_name):
 		print(time_string() + output_file_name + " already exists!")
 		continue

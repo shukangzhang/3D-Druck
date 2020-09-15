@@ -90,18 +90,18 @@ module bridges_between_rings(ring_structure, center_points, thickness_bridge) {
 // It has to be sorted from outer most to inner most rings
 ring_structure = [
     [12, 45, 2, 10],
-    [12, 36, 2],
+    [0, 36, 2],
     [4, 20, 2],
     [1, 0, 3]
 ];
 // Thickness of the bridges connecting the circles
-bridge_thickness = 1;
+bridge_thickness = 4.0;
 
 // Parameters for the 3D-structure
 // Height of the completed structure
 structure_height = 200;
 // Twist applied to the structure to build the helixes in degrees
-structure_twist = 90;
+structure_twist = 112.5;
 
 /* Create the structure */
 // Calculate center points of the structures to extrude
@@ -111,6 +111,7 @@ center_points = get_center_points(ring_structure);
 // Extrude the 2D-Structure with a twist to create helixes
 // Color for better contrast in preview mode
 color("lightgrey")
+difference() {
 union() {
     linear_extrude(height=structure_height/2, center=false, twist=structure_twist, slices=50) {
         // Create ring structure in 2D 
@@ -145,5 +146,22 @@ union() {
         bridges_between_rings(ring_structure, center_points, bridge_thickness);
     }
 }
+translate([-50, 0, 0])
+cube([200, 200, structure_height]);
+}
 // Create simple model of tube for sanity checking
 %cylinder(structure_height, d=94);
+
+
+
+
+test = [for (i=[0:5])
+    if (i%4 == 0) 
+        [0,0]
+    else if (i%4 == 1) 
+        [0,1]
+    else if (i%4 == 2) 
+        [1,0]
+    else 
+        [1,1]
+];
