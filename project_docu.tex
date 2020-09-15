@@ -31,6 +31,7 @@
 \renewcommand\cellalign{tl}
 \usepackage{ulem}
 \usepackage{gensymb}
+\usepackage{wrapfig}
 
 %=================================================================
 %% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -113,16 +114,31 @@ Material ??? (not be defined)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Solution}
+
 \subsection{CAD-Model}
 
-3D Model is made by Openscad, an open-resource CAD program.
+\begin{wrapfigure}{l}{0.3\textwidth}
+\centerline{\includegraphics[height=0.48\textwidth]{./docu_pictures/simple_double_part.png}}
+\caption{Example CAD model}
+\label{cad-number-of-objects}
+\end{wrapfigure}
+
+The idea is to create a helical structure with high parameterizability. The helical structure is chosen because of it's ability to create a vortex at the outlet and thereby creating a higher mixing of the liquid in the pipe. 
+
+The structure is first created as a two-dimensional drawing which is linearly extruded with a twist. This drawing consists of a number of rings around the center, each containing a certain number of circles. These circles are connected by the shortest path with a circle in the next inner ring. The circles in the innermost ring are connected with the closes other circle from this ring.
+
+This construction allows for the following parameters to be easily changed: Number and distance from center of the rings, number of circles for each ring, twist and the thickness of the edges between the circles. All of those parameters together allow for the structure to have a different density dependent on the distance from the center, thereby being adaptable to the requirements of electrical induction.
+
+After the first simulations it was clear that the structure needs to be longer to allow for more heat to be transferred, so the structure was mirrored at the top to double it's length and mix the liquid further within the structure with the change in the twist direction.
+
+The CAD modelling script language OpenSCAD \cite{openscad} was used to create the STL files together with Python \cite{python} scripts for batch file generation.
 
 \subsection{Computational Fluid Dynamics(CFD) simulation with Siemens Star-CCM+}
 Simulation is a powerful tool to check the quality of the designed system and help to optimize the model and the process. 
 
 Here in our project it is about Computational fluid dynamics simulation that combines fluid with solid. 
 
-\begin{figure}[h]
+\begin{figure}
 \begin{center}
 \centerline{\includegraphics[width=\textwidth]{./docu_pictures/sketch.png}}
 \end{center}
@@ -355,6 +371,10 @@ Obligatory & Output Pictures & at outlet showing temperature & & Group A & 2020-
 https://zhuanlan.zhihu.com/p/89651311 (visited on 14.09.2020)
 \bibitem{link-2}
 https://uk.pcmag.com/3d-printers/74222/3d-printing-what-you-need-to-know (visited on 14.09.2020)
+\bibitem{openscad}
+http://www.openscad.org/
+\bibitem{python}
+https://www.python.org/
 % Reference 1
 \bibitem[Author1(year)]{ref-journal}
 Author1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
