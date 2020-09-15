@@ -30,6 +30,7 @@
 \usepackage{makecell}
 \renewcommand\cellalign{tl}
 \usepackage{ulem}
+\usepackage{gensymb}
 
 %=================================================================
 %% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -69,7 +70,7 @@
 \abstract{}
 
 % Keywords
-\keyword{3D-Printing, FLM, AMIR, Mixing Reactor}
+\keyword{3D-Printing, FLM, AMIR, Mixing Reactor, Induction}
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -85,18 +86,53 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
+Additive Manufacturing, AM, is in fact not a new concept. It can track back to 150 years ago, when people used two-dimensional layer overlays to form three-dimensional topographic maps. During the 1960s and 1970s came the first AM-Technology, include photopolymerization technology, Powder fusion in 1972 and sheet lamination in 1979. But at that time, it has no commercial market at all and very few investment in research and development. \cite{link-1}
+The first 3D printer, which used the stereolithography technique, was created by Charles W. Hull in the mid-1980s. \cite{link-2}
 
+After 30 years development, 3D Printng has come into personal home. The price is nowadays down to 300 dollars.3D Printing, as a bottom-up-process, has many advantages. With 3D printing, designers have the ability to quickly turn concepts into 3D models or prototypes, and implement rapid design changes. It makes development so much easier, quicker and cheaper. 
+
+Generally, development steps look like this: 
+\begin{enumerate}
+    \item Identification of project requirements
+    \item Computer-aided 3D Model design
+    \item Simulation of the 3D Model in corresponding physical field
+    \item Optimize according to the results from Simulation
+    \item Print real 3D Model via 3D Printing and do experiment
+    \item Optimize according to the results from experiment
+\end{enumerate}
+
+
+In this project we will show you how to combine Computer-aided 3D Printing technologies with simulation and data processing to achieve our goal.
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}
+\section{Problem}
+In our project we have a pipe (Material: Polymer) up to 300mm long, with a internal diameter of 94 mm. A static heat-exchanger need to be built inner the pipe, so that 10 ℃ water flow from one side and left the other side 80 \textdegree{}C$\pm$ 5 \textdegree{}C the temperature distribution should be evenly along radial direction. Fluid volume is given with 0.5 $m^3/h$. As thermal source we have chosen electromagnetic induction. To check the temperature along the pipe, we have chosen an infrared thermometer. And another important parameter that need to be confirmed in the experiment is the press-drop. 
+
+Material ??? (not be defined)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion}
+\section{Solution}
+\subsection{CAD-Model}
 
+3D Model is made by Openscad, an open-resource CAD program.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Materials and Methods}
+\subsection{Computational Fluid Dynamics(CFD) simulation with Siemens Star-CCM+}
+Simulation is a powerful tool to check the quality of the designed system and help to optimize the model and the process. 
+
+Here in our project it is about Computational fluid dynamics simulation that combines fluid with solid. 
+
+\begin{figure}[h]
+\begin{center}
+\centerline{\includegraphics[width=\textwidth]{./docu_pictures/sketch.png}}
+\end{center}
+\caption{Below is a sketch of our simulation.}
+\label{simulation-sketch}
+\end{figure}
+
+Static heat-exchanger is in the middle. 
+
+Now we go further into details.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -257,6 +293,56 @@ Obligatory & Output Pictures & at outlet showing temperature & & Group A & 2020-
 % - Simulationsmodell für Druckverlust ?
 % - Allererster Designentwurf als fertigungsgerechtes CAD-Modell
 
+%%% Besprechung 07.07.2020
+% Toleranz bei input geoemetrie dimensionen
+% Mesch anhand minimaler geometrien 
+% Netzstudie als Anforderung um zu validieren, dass das Mesch in Ordnung ist
+% Fürs Cura mehr verbindung zu grundplatte
+% Radiale Durchmischung verbessern
+% Für nächste Woche
+% Simulationsmodell verbessern, Mesch verbessern
+% Was wollen wir experimentell machen, was in Model?
+% Welche Teile unser Geometrie haben welchen Einfluss auf Ausgabeparameter
+
+%%% Besprechung 13.07.2020
+% Mesh-Dichte an Stegdichte anpassen
+% Eher "ingenieurwerte" als Abbruchkriterium z. B. 
+
+%%% Besprechung 21.07.2020
+% Sandpapier um PLA abzutragen, vielleicht Drehbank
+% Heatsource in Basissimulation deutlich sinnvoller als statische Temperatur
+% Modell an Can schicken mit E-Mail der Probleme
+% Strömungsgeschwindigkeit im Experiment später 
+% Energieeintrag ins Bauteil wird später als E-Mail erklärt
+% Fasersensoren noch nicht da
+% Technische Daten der Faser kommen per E-Mail
+% Strukturierung des Papers bis nächste Woche
+% Leerrohrmessung kommt nächste Woche
+
+%%% Besprechung 28.07.2020
+% Leerrohrmessung Ergebnisse: Kommt noch...
+% Induktionsspule Leistung: Es gibt zwei Stück, Sören guckt was die können, aber maximal 3500 Watt
+% Lieber 3 Modelle gleichzeitig mit jeweils 2 Kernen rechnen
+% Fasersensoren? 
+% Pumpe ist Kreiselpumpe, hält Durchflussmenge ziemlich konstant
+% Fertigungsrestriktionen für Metall-Drucker werden hochgeladen
+% Sie haben einen neuen Drucker, der auch Keramik verarbeiten kann, ein Formlabs Form 2
+
+%%% Besprechung 04.08.2020
+% Faser hat 5 Messpunkte Abstand 20 mm oder 30 mm
+% Düsen 0.25, 0.4, 0.6, 0.8 für Ultimaker verfügbar
+% Netz umbauen auf Polyhedral
+% Surfaces ignorieren
+
+%%% Besprechung 11.08.2020
+% Modell auf Fertigbarkeit überprüfen (z. B. Fertigungsrestriktionen tabellarisch abklappern)
+% Hauptaussage AM-Bauteil bietet höheren Energieeintrag pro Volumen, ist schneller und einfacher zu fertigen
+% Volumenstrom an Reynoldszahl festlegen
+% Leerrohrmessung als Vergleichswert für Literaturvergleich
+% Werte anderer statischer Mischer aus Literatur suchen zum Vergleich
+% kenics Mischer vielleicht als Grundlage
+% Freitag Leerrohr Validierung mit Literatur schicken, Energieeintrag mit Eisen durch Induktion (Effizienz, wie viel gebe ich drauf, wie viel kommt an), Leerrohrsimulation
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
 
@@ -265,6 +351,10 @@ Obligatory & Output Pictures & at outlet showing temperature & & Group A & 2020-
 %=====================================
 \reftitle{References}
 \begin{thebibliography}{999}
+\bibitem{link-1}
+https://zhuanlan.zhihu.com/p/89651311 (visited on 14.09.2020)
+\bibitem{link-2}
+https://uk.pcmag.com/3d-printers/74222/3d-printing-what-you-need-to-know (visited on 14.09.2020)
 % Reference 1
 \bibitem[Author1(year)]{ref-journal}
 Author1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
