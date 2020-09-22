@@ -32,6 +32,7 @@
 \usepackage{ulem}
 \usepackage{gensymb}
 \usepackage{wrapfig}
+\usepackage{subcaption}
 
 %=================================================================
 %% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -46,10 +47,10 @@
 %\newcommand{\orcidauthorB}{0000-0000-000-000X} % Add \orcidB{} behind the author's name
 
 % Authors, for the paper (add full first names)
-\Author{Elmar Schiessl, Janick Beck and Shukang Zhang}
+\Author{Janick Beck and Shukang Zhang}
 
 % Authors, for metadata in PDF
-\AuthorNames{Elmar Schiessl, Janick Beck and Shukang Zhang}
+\AuthorNames{Janick Beck and Shukang Zhang}
 
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
@@ -107,7 +108,7 @@ In this project we will show you how to combine Computer-aided 3D Printing techn
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Problem}
-In our project we have a pipe (Material: Polymer) up to 300mm long, with a internal diameter of 94 mm. A static heat-exchanger need to be built inner the pipe, so that 10 ℃ water flow from one side and left the other side 80 \textdegree{}C$\pm$ 5 \textdegree{}C the temperature distribution should be evenly along radial direction. Fluid volume is given with 0.5 $m^3/h$. As thermal source we have chosen electromagnetic induction. To check the temperature along the pipe, we have chosen an infrared thermometer. And another important parameter that need to be confirmed in the experiment is the press-drop. 
+In our project we have a pipe (Material: Polymer) up to 300mm long, with a internal diameter of 94 mm. A static heat-exchanger need to be built inner the pipe, so that 10[℃]water flow from one side and left the other side 80 \textdegree{}C$\pm$ 5 \textdegree{}C the temperature distribution should be evenly along radial direction. Fluid volume is given with 0.5 $m^3/h$. As thermal source we have chosen electromagnetic induction. To check the temperature along the pipe, we have chosen an infrared thermometer. And another important parameter that need to be confirmed in the experiment is the press-drop. 
 
 Material ??? (not be defined)
 
@@ -125,11 +126,11 @@ Material ??? (not be defined)
 
 The idea is to create a helical structure with high parameterizability. The helical structure is chosen because of it's ability to create a vortex at the outlet and thereby creating a higher mixing of the liquid in the pipe. 
 
-The structure is first created as a two-dimensional drawing which is linearly extruded with a twist. This drawing consists of a number of rings around the center, each containing a certain number of circles. These circles are connected by the shortest path with a circle in the next inner ring. The circles in the innermost ring are connected with the closes other circle from this ring.
+The structure is first created as a two-dimensional drawing which is linearly extruded with a twist. This drawing consists of a number of rings around the center, each containing a certain number of circles. These circles are connected by the shortest path with a circle in the next inner ring. The circles in the innermost ring are connected with the closest other circle from this ring.
 
 This construction allows for the following parameters to be easily changed: Number and distance from center of the rings, number of circles for each ring, twist and the thickness of the edges between the circles. All of those parameters together allow for the structure to have a different density dependent on the distance from the center, thereby being adaptable to the requirements of electrical induction.
 
-After the first simulations it was clear that the structure needs to be longer to allow for more heat to be transferred, so the structure was mirrored at the top to double it's length and mix the liquid further within the structure with the change in the twist direction.
+After the first simulations it was clear that the structure needs to be longer to create more mass and area to transfer the heat. So the structure was mirrored at the top to double it's length and mix the liquid further within the structure with the change in the twist direction.
 
 The CAD modelling script language OpenSCAD \cite{openscad} was used to create the STL files together with Python \cite{python} scripts for batch file generation.
 
@@ -140,44 +141,123 @@ Here in our project it is about Computational fluid dynamics simulation that com
 
 \begin{figure}
 \begin{center}
-\centerline{\includegraphics[width=\textwidth]{./docu_pictures/sketch.png}}
+\centerline{\includegraphics[width=\textwidth]{./docu_pictures/sketch1.png}}
 \end{center}
-\caption{Below is a sketch of our simulation.}
+\caption{Geometric view of the simulation. Static heat-exchanger in the middle.}
 \label{simulation-sketch}
 \end{figure}
 
-Static heat-exchanger is in the middle. 
+When man run a CFD-simulation, the first thing to think about is, that the fluid behaviors laminar or turbulent. First we take a look at a much easier system, water flows direct through the pipe without mixer. Then we can easily calculate the Reynolds number. 
 
-Now we go further into details.
+\begin{align*}
+    \text{Re} = \frac{\rho ud}{\mu}
+\end{align*}
+
+$\rho$ represents the density of the water, $u$ represents the velocity of the water normal to the inlet-surface(see figure 3-1), $\mu$ represents dynamic viscosity of the water, and d the characteristic length, here i.e. the inner diameter $d=0.09$[m]. In this case we have fluid volume of $V = 0.5$ [$\frac{m^3}{s}]=1.389*10^{-4}$ [$\frac{m^3}{s}]$, $\rho_{283K}=999$[$\frac{kg}{m^3}$], $\mu_{283K}=1.3077*10^{-3}$[Pa*s]. The value of the dynamic viscosity of water comes from literature \cite{link-3}. So we get the result $Re_{283K}=1437$.The critical $Re$ value for a laminar fluid in a pipe is 2320 \cite{script}. Then in order to obtain the press drop when water flows through the empty pipe, we run the simulate under laminar model. Under is the software settings as show in Fig. \ref{fluid-settings}. 
+
+\begin{figure}
+\begin{center}
+\centerline{\includegraphics[width=0.4\textwidth]{./docu_pictures/fluid.png} \includegraphics[width=0.4\textwidth]{./docu_pictures/fluid2.png}}
+\end{center}
+\caption{Simulation fluid settings}
+\label{fluid-settings}
+\end{figure}
+
+Simulation shows a result of 0.16619[Pa]. This simulation was also run again under same settings except that laminar model changed into turbulent model. And we got a result of 0.16722[Pa]. Almost the same result. Later we will compare these results with the results from experiments. 
+
+Now we can add the mixer into the pipe. This has influence to the characteristic length. Since the definition for the d is:
+
+\begin{align*}
+    d \equiv 4 \cdot \frac{\text{fluid passed surface}}{\text{wetted circumference}}
+\end{align*}
+
+So the adding of the mixer will reduce the characteristic length and lead to the reducing of Re. But on the other hand, we want to heat the water from 10[℃] to 80[℃], increasing temperature will reduce the dynamic viscosity very obviously. Under 80[℃] is  $\mu_{353K}=0.3565*10^{-3}[\text{Pa}*s]$, and then $Re_{353K}=5272$ when it flows through empty pipe. And $\kappa-\epsilon$-turbulence model, which uses Reynolds-Averaged Navier-Stokes-Equation (RANS), include extra terms to describe the disturbance from environment, that cannot be found in normal Navier-Stokes-Equation. So it's obviously better to run our simulation under turbulent model when we add mixer and thermal source. The software settings are shown in Fig. \ref{software-settings}.
+
+\begin{figure}
+\begin{center}
+\centerline{\includegraphics[width=0.3\textwidth]{./docu_pictures/software1.png} \includegraphics[width=0.3\textwidth]{./docu_pictures/software2.png}
+\includegraphics[width=0.3\textwidth]{./docu_pictures/software3.png}}
+\end{center}
+\caption{Simulation software Settings}
+\label{software-settings}
+\end{figure}
+
+We use the equation from literature[3] to describe the change of the dynamic viscosity of the water: 
+\begin{align*}
+    \mu=A*10^{\frac{B}{T-C}}
+\end{align*}
+
+Where $A=2.414*10^{-5}[Pa*s]$; $B=247.8[K]$; $C=140[K]$.
+
+\begin{figure}
+\begin{center}
+\centerline{\includegraphics[width=0.3\textwidth]{./docu_pictures/solid1.png} \includegraphics[width=0.3\textwidth]{./docu_pictures/solid2.png}}
+\end{center}
+\caption{Simulation solid settings}
+\label{solid-settings}
+\end{figure}
+
+We plan to use the electromagnetic induction method to heat the water, but in order to simplify the simulation. We give here the mixer a steady temperature of 90℃. as shown in  Fig. \ref{solid-settings}.The heat transfer coefficient between mixer and water is given by 1000[$\frac{W}{m^{2}*K}$]. It's a typical value from literature \cite{uebergang-fluessigkeit}. 
+
+After generating mesh using polyhedral cell we obtain for fluid 6784729 cells and for solid 3429631 cells, which should be far enough for accurate results. Pictures of the mesh are shown in Fig. \ref{mesh-pictures} and the results in Fig. \ref{vertical-result-pictures}, Fig. \ref{outlet-result-pictures}.
+
+\begin{figure}
+\begin{center}
+\centering
+\begin{subfigure}{1.0\textwidth}
+\includegraphics[width=\linewidth]{./docu_pictures/model1.png}
+\end{subfigure}
+\begin{subfigure}{1.0\textwidth}
+\includegraphics[width=\linewidth]{./docu_pictures/model2.png}
+\end{subfigure}
+\end{center}
+\caption{Mesh view of the model}
+\label{mesh-pictures}
+\end{figure}
+
+\begin{figure}
+%\captionsetup[subfigure]{labelformat=empty}
+\begin{center}
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+\includegraphics[width=\linewidth]{./docu_pictures/result1.png}
+\caption*{The press drop between inlet and outlet is 1.19[Pa]. \\ \vspace{1cm}}
+\end{subfigure}
+\begin{subfigure}[b]{1.0\textwidth}
+\includegraphics[width=\linewidth]{./docu_pictures/result2.png}
+\caption*{The picture above shows temperature distribution along the pipe. It's clear, that water obtain heat from the mixer, because the color change near the interface between the water and the mixer shows obvious temperature gradient. \\ \vspace{1cm}}
+\end{subfigure}
+\end{center}
+\caption{Side view of the results}
+\label{vertical-result-pictures}
+\end{figure}
+
+\begin{figure}
+%\captionsetup[subfigure]{labelformat=empty}
+\begin{center}
+\centering
+\begin{subfigure}[b]{1.0\textwidth}
+\includegraphics[width=\linewidth]{./docu_pictures/result3.png}
+\caption*{Average temperature of the outlet is 17.045[℃], i.e. 290.045[K]. Standard temperature deviation at the outlet is 0.575[℃], which smaller than 1[℃]. Almost a evenly distribution along radial direction.}
+\end{subfigure}
+\end{center}
+\caption{Outlet view of the results}
+\label{outlet-result-pictures}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 
+The temperature increases only 7[K] after passing mixer, which is far away from what we want. Now we have some strategies to improve our results. For example, change the geometry of the mixer to increase the heat exchange. The heat exchange based on contact between fluid element is almost steady and slow, but we can enhance the convection to increase the heat exchange based on material transport and diffusion. So we need to improve the degree of turbulence. 
 
+On the other hand, we can slow down the fluid velocity, so that the fluid element have more time to exchange heat. 
+
+At last, we can also increase the solid temperature, so that water get more heat under the same contact time.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% optional
-%\supplementary{The following are available online at \linksupplementary{s1}, Figure S1: title, Table S1: title, Video S1: title.}
-
-% Only for the journal Methods and Protocols:
-% If you wish to submit a video article, please do so with any other supplementary material.
-% \supplementary{The following are available at \linksupplementary{s1}, Figure S1: title, Table S1: title, Video S1: title. A supporting video article is available at doi: link.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\funding{This research received no external funding}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\conflictsofinterest{} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
@@ -368,19 +448,19 @@ Obligatory & Output Pictures & at outlet showing temperature & & Group A & 2020-
 \reftitle{References}
 \begin{thebibliography}{999}
 \bibitem{link-1}
-https://zhuanlan.zhihu.com/p/89651311 (visited on 14.09.2020)
+\url{https://zhuanlan.zhihu.com/p/89651311} (visited on 14.09.2020)
 \bibitem{link-2}
-https://uk.pcmag.com/3d-printers/74222/3d-printing-what-you-need-to-know (visited on 14.09.2020)
+\url{https://uk.pcmag.com/3d-printers/74222/3d-printing-what-you-need-to-know} (visited on 14.09.2020)
+\bibitem{link-3}
+\url{https://www.engineersedge.com/physics/water\_\_density\_viscosity\_specific\_weight\_13146.htm} (visited on 21.09.2020)
+\bibitem{script}
+Skript zur Vorlesung chemische Reaktionstechnik 2, Page 42, Prof. Dr. Ing. Thomas Turek, Technische Universität Clausthal
+\bibitem{uebergang-fluessigkeit}
+\url{https://www.schweizer-fn.de/stoff/wuebergang_fluessigkeit/wuebergang_fluessigkeit.php} (visited on 21.09.2020)
 \bibitem{openscad}
-http://www.openscad.org/
+OpenSCAD \url{http://www.openscad.org/}
 \bibitem{python}
-https://www.python.org/
-% Reference 1
-\bibitem[Author1(year)]{ref-journal}
-Author1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
-% Reference 2
-\bibitem[Author2(year)]{ref-book}
-Author2, L. The title of the cited contribution. In {\em The Book Title}; Editor1, F., Editor2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
+Python \url{https://www.python.org/}
 \end{thebibliography}
 
 % The following MDPI journals use author-date citation: Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, JRFM, Laws, Religions, Risks, Social Sciences. For those journals, please follow the formatting guidelines on http://www.mdpi.com/authors/references
